@@ -1,12 +1,14 @@
 export const practice = {
- name: 'Align Therapy Group',
- shortName: 'Align Therapy',
- city: 'Madison',
- state: 'Wisconsin',
- stateAbbreviation: 'WI',
- address: 'Madison, Wisconsin',
- phone: '(970) 555-0148',
+ name: 'Signal & Structure Coaching',
+ shortName: 'Signal & Structure',
+ city: 'Minneapolis',
+ state: 'Minnesota',
+ stateAbbreviation: 'MN',
+ address: 'Minneapolis, Minnesota',
+ phone: '(612) 555-0148',
  email: 'hello@example.com',
+ tagline: 'Build systems that work with your brain.',
+ serviceLine: 'ADHD & executive-function coaching',
 };
 
 export const appointmentUrl = '/contact/';
@@ -18,8 +20,11 @@ export const externalLinkAttrs = () => ({
 });
 
 export const site = {
- publicUrl: 'https://align.brightersites.app',
+ publicUrl: 'https://signal-structure.brightersites.app',
  practice,
+
+ // Temporary inherited profile data.
+ // This will be replaced when the coaching About/profile pages are rebuilt.
  clinician: {
  name: 'Jordan Ellis',
  credentials: 'LPC',

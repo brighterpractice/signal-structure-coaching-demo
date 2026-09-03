@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const canonicalOrigin = 'https://align.brightersites.app';
+const canonicalOrigin = 'https://signal-structure.brightersites.app';
 
 const failures = [];
 const warnings = [];

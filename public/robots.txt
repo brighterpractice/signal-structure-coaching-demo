@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://align.brightersites.app/sitemap.xml
+Sitemap: https://signal-structure.brightersites.app/sitemap.xml

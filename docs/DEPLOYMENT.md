@@ -1,6 +1,6 @@
 # Deployment
 
-Align Therapy Group is a static Astro site deployed from [align-therapy-demo](https://github.com/align-therapy-demo) to Cloudflare Pages.
+Signal & Structure Coaching is a static Astro site deployed from [signal-structure-coaching-demo](https://github.com/signal-structure-coaching-demo) to Cloudflare Pages.
 
 ## Cloudflare Pages project
 
@@ -24,9 +24,9 @@ Cloudflare Pages keeps previous deployments. If a production issue is discovered
 
 ## Custom domain and DNS
 
-Add `align.brightersites.app` under the Pages project's **Custom domains** settings and follow Cloudflare's DNS prompts. The site configuration, canonical URLs, sitemap, and robots file assume this production host:
+Add `signal-structure.brightersites.app` under the Pages project's **Custom domains** settings and follow Cloudflare's DNS prompts. The site configuration, canonical URLs, sitemap, and robots file assume this production host:
 
-`https://align.brightersites.app`
+`https://signal-structure.brightersites.app`
 
 Use the configured `brightersites.app` subdomain as the single canonical host. Confirm Cloudflare's automatic HTTP-to-HTTPS redirect is active and test the custom domain before announcing launch.
 
@@ -34,10 +34,10 @@ Security and cache response headers live in `public/_headers`. After the first d
 
 ## Search Console
 
-1. Add a Google Search Console **Domain property** for `align.brightersites.app`.
+1. Add a Google Search Console **Domain property** for `signal-structure.brightersites.app`.
 2. Copy the verification TXT value supplied by Google; do not create one manually.
 3. Add that TXT record in Cloudflare DNS and complete verification in Search Console.
-4. Submit `https://align.brightersites.app/sitemap.xml`.
+4. Submit `https://signal-structure.brightersites.app/sitemap.xml`.
 5. Inspect the homepage and representative service pages after deployment, then request indexing when appropriate.
 6. Confirm the canonical URLs, sitemap URLs, and indexed host all agree.
 

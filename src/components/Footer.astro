@@ -11,17 +11,11 @@ const portalAttrs = externalLinkAttrs();
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-identity">
-      <img
-        src="/images/branding/align-icon.png"
-        alt=""
-        width="72"
-        height="84"
-        loading="lazy"
-      />
+      <div class="footer-mark" aria-hidden="true">S&amp;S</div>
 
       <div>
         <p class="name">{practice.name}</p>
-        <p>Individual counseling for adults</p>
+        <p>{practice.serviceLine}</p>
         <span>{practice.city}, {practice.state}</span>
       </div>
     </div>
@@ -49,9 +43,9 @@ const portalAttrs = externalLinkAttrs();
     <div class="footer-demo">
       <p class="footer-label">Design demonstration</p>
       <p>
-        Align Therapy Group and Jordan Ellis are fictional. This site
-        demonstrates a structured, modern therapy-practice direction created
-        by Brighter Sites.
+        Signal &amp; Structure Coaching is fictional. This site demonstrates
+        a modern ADHD and executive-function coaching direction created by
+        Brighter Sites.
       </p>
       <a
         href="https://brightersites.app/work/"
@@ -102,9 +96,17 @@ const portalAttrs = externalLinkAttrs();
     align-items: start;
   }
 
-  .footer-identity img {
+  .footer-mark {
+    display: grid;
     width: 3.3rem;
-    height: auto;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: .75rem;
+    color: white;
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .08em;
   }
 
   .name {
