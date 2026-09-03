@@ -4,24 +4,22 @@ import PageHero from '../components/PageHero.astro';
 import Button from '../components/Button.astro';
 import {
   appointmentUrl,
-  clientPortalUrl,
-  externalLinkAttrs,
+  practice,
 } from '../data/site';
 import { breadcrumbSchema, pageSchema } from '../lib/schema';
 
-const portalAttrs = externalLinkAttrs();
 const crumbs = [{ label: 'Contact' }];
 ---
 
 <Layout
-  title="Contact Align Therapy Group | Madison, Wisconsin"
-  description="Request an individual counseling appointment with Jordan Ellis, LPC, at Align Therapy Group in Madison."
+  title="Contact Signal & Structure Coaching"
+  description="Book a discovery call with Signal & Structure Coaching to discuss ADHD, executive-function, student, or professional coaching."
   schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
   <PageHero
     eyebrow="Start here"
-    title="Tell us only what we need to know to begin."
-    intro="A first request should establish contact—not ask you to place your clinical history into an ordinary message."
+    title="Begin with the problem you are actually trying to solve."
+    intro="A discovery call is a simple first conversation about what feels difficult, what you have already tried, and whether coaching may be useful."
     crumbs={crumbs}
   />
 
@@ -29,29 +27,31 @@ const crumbs = [{ label: 'Contact' }];
     <div class="container start-grid">
       <aside>
         <span>01</span>
-        <p>NEW CLIENT</p>
+        <p>DISCOVERY CALL</p>
       </aside>
 
       <div class="start-copy">
-        <p class="eyebrow">Request a conversation</p>
-        <h2>Begin with availability and fit.</h2>
+        <p class="eyebrow">Start with fit</p>
+        <h2>You do not need to prepare a perfect explanation.</h2>
+
         <p>
-          Use the appointment request to share basic contact information and
-          ask about scheduling. Detailed clinical, insurance, and intake
-          information belongs in the appropriate secure system after the next
-          step is established.
+          Bring the part that keeps creating friction: missed deadlines,
+          overloaded weeks, abandoned systems, difficulty starting, competing
+          priorities, or the sense that keeping everything organized requires
+          more effort than it should.
         </p>
 
         <div class="privacy-line">
-          <strong>Please leave out:</strong>
+          <strong>A simple first message is enough.</strong>
           <span>
-            diagnoses, medication details, trauma history, insurance numbers,
-            or urgent safety information.
+            Your name, contact information, general scheduling availability,
+            and a short description of what you would like help with are plenty
+            for the first step.
           </span>
         </div>
 
         <Button href={appointmentUrl} tracking="request-appointment">
-          Request an appointment
+          Book a discovery call
         </Button>
       </div>
     </div>
@@ -60,23 +60,33 @@ const crumbs = [{ label: 'Contact' }];
   <section class="steps">
     <div class="container">
       <p class="eyebrow">What happens next</p>
-      <h2>A short path from request to first session.</h2>
+      <h2>A straightforward path from first contact to coaching.</h2>
 
       <ol>
         <li>
           <span>01</span>
-          <h3>Request</h3>
-          <p>Send basic contact and scheduling information.</p>
+          <h3>Connect</h3>
+          <p>
+            Share basic contact information and what you would like to work on.
+          </p>
         </li>
+
         <li>
           <span>02</span>
-          <h3>Clarify</h3>
-          <p>Review availability, practical details, and whether the practice may fit.</p>
+          <h3>Talk</h3>
+          <p>
+            Use the discovery call to discuss fit, goals, scheduling, and which
+            coaching option makes the most sense.
+          </p>
         </li>
+
         <li>
           <span>03</span>
-          <h3>Complete securely</h3>
-          <p>Use the designated system for intake and other private information.</p>
+          <h3>Build</h3>
+          <p>
+            Begin with one real friction point and start designing a system you
+            can test in everyday life.
+          </p>
         </li>
       </ol>
     </div>
@@ -86,24 +96,28 @@ const crumbs = [{ label: 'Contact' }];
     <div class="container reference-grid">
       <div>
         <p class="eyebrow">Practice reference</p>
-        <h2>Align Therapy Group</h2>
+        <h2>{practice.name}</h2>
       </div>
 
       <dl>
-        <div><dt>Location</dt><dd>Madison, Wisconsin</dd></div>
-        <div><dt>Service</dt><dd>Individual counseling for adults</dd></div>
         <div>
-          <dt>Existing clients</dt>
-          <dd>
-            <a
-              href={clientPortalUrl}
-              target={portalAttrs.target}
-              rel={portalAttrs.rel}
-              data-track="client-portal"
-            >
-              Open Client Portal ↗
-            </a>
-          </dd>
+          <dt>Format</dt>
+          <dd>Individual virtual coaching</dd>
+        </div>
+
+        <div>
+          <dt>Focus</dt>
+          <dd>ADHD & executive-function coaching</dd>
+        </div>
+
+        <div>
+          <dt>Clients</dt>
+          <dd>Adults, college students & professionals</dd>
+        </div>
+
+        <div>
+          <dt>Based in</dt>
+          <dd>{practice.city}, {practice.state}</dd>
         </div>
       </dl>
     </div>
@@ -112,14 +126,16 @@ const crumbs = [{ label: 'Contact' }];
   <section class="safety">
     <div class="container safety-grid">
       <div>
-        <p class="eyebrow">Urgent needs</p>
-        <h2>This website is not monitored for emergencies.</h2>
+        <p class="eyebrow">Scope of coaching</p>
+        <h2>Coaching is not therapy or emergency support.</h2>
       </div>
 
       <p>
-        Do not use an appointment request for immediate or urgent support.
-        If there is immediate danger, contact local emergency services or go
-        to the nearest emergency department.
+        Signal & Structure provides coaching focused on planning, organization,
+        attention, routines, and follow-through. It does not diagnose or treat
+        mental-health conditions and is not an emergency or crisis service. If
+        you need urgent help or are in immediate danger, contact the appropriate
+        local emergency or crisis resource.
       </p>
     </div>
   </section>
@@ -127,32 +143,33 @@ const crumbs = [{ label: 'Contact' }];
   <section class="faq" id="faq">
     <div class="container faq-grid">
       <div>
-        <p class="eyebrow">Before you request</p>
+        <p class="eyebrow">Before you book</p>
         <h2>Three useful answers.</h2>
       </div>
 
       <div>
         <details>
-          <summary>Does Align provide couples therapy?</summary>
+          <summary>Do I need an ADHD diagnosis?</summary>
           <p>
-            No. This demonstration presents individual counseling for adults,
-            including individual work related to relationship patterns.
+            No. Coaching can focus on executive-function challenges and practical
+            systems whether or not you have a formal ADHD diagnosis.
           </p>
         </details>
 
         <details>
-          <summary>Do I need to choose a therapy method first?</summary>
+          <summary>Is coaching the same as therapy?</summary>
           <p>
-            No. You can begin with the concern. Jordan can explain possible
-            approaches as the work becomes clearer.
+            No. Coaching is future-focused and practical, with an emphasis on
+            goals, systems, skills, experimentation, and follow-through. It is
+            not mental-health treatment.
           </p>
         </details>
 
         <details>
-          <summary>Where can I learn about Jordan?</summary>
+          <summary>Where do sessions take place?</summary>
           <p>
-            Read <a href="/about/">Jordan’s clinician profile</a>
-            and review the demonstration disclosure included there.
+            This fictional demonstration presents Signal & Structure as a
+            Minneapolis-based practice providing individual virtual coaching.
           </p>
         </details>
       </div>

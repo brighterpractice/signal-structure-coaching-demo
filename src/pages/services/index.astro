@@ -8,20 +8,17 @@ const crumbs = [{ label: 'Services' }];
 const detailServices = services.filter(
   (service) => service.published && service.hasDetailPage
 );
-const overviewServices = services.filter(
-  (service) => service.published && !service.hasDetailPage
-);
 ---
 
 <Layout
-  title="Therapy Services in Madison, Wisconsin"
-  description="Focused individual counseling for trauma, anxiety, depression, relationship patterns, grief, life transitions, and chronic health concerns."
+  title="ADHD & Executive Function Coaching Services | Signal & Structure"
+  description="Explore ADHD, executive-function, college student, and professional coaching with Signal & Structure Coaching."
   schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
   <PageHero
-    eyebrow="Focus map"
-    title="Begin with the pattern that keeps returning."
-    intro="A service label is a starting point, not a box. Choose the closest entry—or reach out with your own words."
+    eyebrow="Coaching options"
+    title="Start with the part of life that keeps creating friction."
+    intro="You do not need to know exactly which kind of coaching you need. Choose the closest starting point, or bring the situation in your own words."
     crumbs={crumbs}
   />
 
@@ -29,7 +26,7 @@ const overviewServices = services.filter(
     <div class="container primary-grid">
       <div class="section-code">
         <span>01</span>
-        <p>Detailed focus areas</p>
+        <p>Coaching focus areas</p>
       </div>
 
       <div class="service-rows">
@@ -49,26 +46,50 @@ const overviewServices = services.filter(
     </div>
   </section>
 
-  <section class="additional" id="areas-of-support">
+  <section class="additional">
     <div class="container additional-grid">
       <div>
-        <p class="eyebrow">Also within the work</p>
-        <h2>Some concerns do not need a separate page to have a place here.</h2>
+        <p class="eyebrow">Common friction points</p>
+        <h2>The challenge often shows up in more than one part of life.</h2>
         <p>
-          These experiences can be addressed within individual counseling and
-          may overlap with one or more of the detailed focus areas.
+          Coaching can focus on a single immediate problem while also building
+          systems that transfer to school, work, home, routines, and longer-term
+          projects.
         </p>
       </div>
 
       <div class="additional-list">
-        {
-          overviewServices.map((service) => (
-            <article>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </article>
-          ))
-        }
+        <article>
+          <h3>Task initiation</h3>
+          <p>
+            Reduce the distance between knowing something needs to happen and
+            actually getting started.
+          </p>
+        </article>
+
+        <article>
+          <h3>Time awareness</h3>
+          <p>
+            Build clearer ways to estimate, plan, and notice time before the
+            deadline becomes the organizing system.
+          </p>
+        </article>
+
+        <article>
+          <h3>Planning & prioritization</h3>
+          <p>
+            Turn a crowded list of obligations into a smaller set of visible
+            decisions and next actions.
+          </p>
+        </article>
+
+        <article>
+          <h3>Follow-through</h3>
+          <p>
+            Create supports for the middle of a task or project—after the newness
+            wears off but before the work is finished.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -76,17 +97,18 @@ const overviewServices = services.filter(
   <section class="service-guide">
     <div class="container guide-grid">
       <div>
-        <p class="eyebrow">Concern versus method</p>
-        <h2>What brings you in is different from how the work proceeds.</h2>
+        <p class="eyebrow">Focus versus process</p>
+        <h2>What you want help with is different from how coaching works.</h2>
       </div>
 
       <div>
         <p>
-          Services describe the experience receiving attention. Approaches
-          describe frameworks Jordan may use to understand and work with it.
-          More than one method may fit the same concern.
+          A coaching focus describes where the friction is showing up. The
+          coaching process is how we make that friction visible, design a useful
+          support, test it in real life, and adjust it over time.
         </p>
-        <a href="/how-coaching-works/">View the approach map →</a>
+
+        <a href="/how-coaching-works/">See how coaching works →</a>
       </div>
     </div>
   </section>
