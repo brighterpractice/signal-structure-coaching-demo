@@ -12,21 +12,19 @@ export const practice = {
 };
 
 export const appointmentUrl = '/contact/';
-export const clientPortalUrl = '#';
 
-export const externalLinkAttrs = () => ({
- target: '_blank',
- rel: 'noopener noreferrer',
-});
+export const externalLinkAttrs = (target?: string) =>
+  target === '_blank'
+    ? {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {
+        target,
+        rel: undefined,
+      };
 
 export const site = {
  publicUrl: 'https://signal-structure.brightersites.app',
  practice,
-
- // Field name retained temporarily for inherited schema compatibility.
- clinician: {
- name: 'Avery Reed',
- credentials: '',
- title: 'ADHD & Executive Function Coach',
- },
 };

@@ -1,11 +1,5 @@
 ---
-import {
-  clientPortalUrl,
-  practice,
-  externalLinkAttrs,
-} from '../data/site';
-
-const portalAttrs = externalLinkAttrs();
+import { practice } from '../data/site';
 ---
 
 <footer class="site-footer">
@@ -26,18 +20,6 @@ const portalAttrs = externalLinkAttrs();
       <a href="/services/">Focus map</a>
       <a href="/how-coaching-works/">How coaching works</a>
       <a href="/contact/">Start here</a>
-    </div>
-
-    <div class="footer-clients">
-      <p class="footer-label">Current clients</p>
-      <a
-        href={clientPortalUrl}
-        target={portalAttrs.target}
-        rel={portalAttrs.rel}
-        data-track="client-portal"
-      >
-        Client Portal ↗
-      </a>
     </div>
 
     <div class="footer-demo">
@@ -135,14 +117,12 @@ const portalAttrs = externalLinkAttrs();
     text-transform: uppercase;
   }
 
-  .footer-nav,
-  .footer-clients {
+  .footer-nav {
     display: grid;
     align-content: start;
   }
 
   .footer-nav a,
-  .footer-clients a,
   .footer-demo a {
     display: flex;
     width: fit-content;
@@ -193,7 +173,6 @@ const portalAttrs = externalLinkAttrs();
     }
 
     .footer-nav a,
-    .footer-clients a,
     .footer-demo a {
       min-height: 0;
       padding: .28rem 0;

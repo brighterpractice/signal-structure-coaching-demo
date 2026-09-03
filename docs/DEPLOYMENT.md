@@ -1,63 +1,80 @@
 # Deployment
 
-Signal & Structure Coaching is a static Astro site deployed from [signal-structure-coaching-demo](https://github.com/signal-structure-coaching-demo) to Cloudflare Pages.
+Signal & Structure Coaching is a fictional Brighter Sites portfolio demo built as a static Astro site.
 
-## Cloudflare Pages project
+The intended production host is:
 
-Connect the GitHub repository in **Workers & Pages → Create → Pages → Connect to Git** and use:
+https://signal-structure.brightersites.app
 
-- Production branch: `main`
+The demo is intentionally excluded from search indexing.
+
+## Cloudflare Pages
+
+When the GitHub repository and Cloudflare Pages project are created, use:
+
+- Production branch: main
 - Framework preset: Astro
-- Build command: `npm run build`
-- Build output directory: `dist`
+- Build command: npm run build
+- Build output directory: dist
 - Root directory: repository root
-- Node.js: `22.12.0` or newer, matching `package.json`
+- Node.js: 22.12.0 or newer, matching package.json
 - Environment variables: none currently required
 
-Do not add the Cloudflare adapter, Pages Functions, Wrangler, or SSR for the current site. Astro produces the complete static deployment in `dist/`.
+Do not add the Cloudflare adapter, Pages Functions, Wrangler, or SSR for the current site. Astro produces the complete static deployment in dist.
 
 ## Deployment workflow
 
-Pull requests and non-production branches should receive Cloudflare preview deployments. Review the preview URL before merging. A merge to `main` triggers the production build and deployment.
+Preview deployments should be reviewed before production changes are merged to main.
 
-Cloudflare Pages keeps previous deployments. If a production issue is discovered, select the last known-good production deployment in the Pages dashboard and use **Rollback to this deployment**. Follow with a source fix on `main` so the repository and live deployment remain aligned.
+Cloudflare Pages retains previous deployments. If a production issue is found, roll back to the last known-good deployment and follow with a source fix so the repository and live site remain aligned.
 
-## Custom domain and DNS
+## Domain and DNS
 
-Add `signal-structure.brightersites.app` under the Pages project's **Custom domains** settings and follow Cloudflare's DNS prompts. The site configuration, canonical URLs, sitemap, and robots file assume this production host:
+Add signal-structure.brightersites.app as the Pages custom domain and follow Cloudflare's DNS prompts.
 
-`https://signal-structure.brightersites.app`
+The Astro configuration, canonical URLs, sitemap, and robots configuration assume:
 
-Use the configured `brightersites.app` subdomain as the single canonical host. Confirm Cloudflare's automatic HTTP-to-HTTPS redirect is active and test the custom domain before announcing launch.
+https://signal-structure.brightersites.app
 
-Security and cache response headers live in `public/_headers`. After the first deployment, inspect representative HTML, `/_astro/` assets, images, `robots.txt`, and `sitemap.xml` in the browser network panel or with `curl -I` to confirm the rules are active.
+Confirm HTTPS and the custom hostname before considering deployment complete.
 
-## Search Console
+Security and cache response headers live in public/_headers.
 
-1. Add a Google Search Console **Domain property** for `signal-structure.brightersites.app`.
-2. Copy the verification TXT value supplied by Google; do not create one manually.
-3. Add that TXT record in Cloudflare DNS and complete verification in Search Console.
-4. Submit `https://signal-structure.brightersites.app/sitemap.xml`.
-5. Inspect the homepage and representative service pages after deployment, then request indexing when appropriate.
-6. Confirm the canonical URLs, sitemap URLs, and indexed host all agree.
+## Search indexing
 
-DNS verification is preferred because it covers the domain and its protocol/subdomain variants without adding a verification tag to the site.
+This is a portfolio demonstration site, not an operating coaching business.
 
-## Future integrations
+Normal pages intentionally render noindex, follow.
 
-- Appointment destination: set `appointmentExternalUrl` in `src/data/site.ts`.
-- Client Portal destination: set `clientPortalExternalUrl` in `src/data/site.ts`.
-- Analytics: retain the existing `data-track` attributes as the event vocabulary. Add a small provider integration in the shared layout only after the provider, privacy configuration, and identifier are confirmed. Never send query strings, user-entered text, or clinical information in event payloads. Update the Content Security Policy in `public/_headers` only for the exact provider origins required.
+The 404 page renders noindex, nofollow.
 
-External appointment and portal links intentionally open in the same tab. If that policy changes, add `rel="noopener noreferrer"` whenever `target="_blank"` is introduced.
+Do not request indexing or submit this demo for ordinary Google search visibility. If that policy changes later, review the robots metadata, sitemap strategy, canonical URLs, and demo disclosures together.
+
+## Analytics
+
+Retain the existing data-track attributes and shared Brighter Sites analytics collector unless the analytics contract is intentionally changed across the demo system.
+
+The internal analytics vocabulary includes appointment-oriented event names for compatibility with the shared collector even though the visible coaching CTA says "Book a discovery call."
+
+Do not send form contents, URL query strings, sensitive personal information, or coaching details in analytics event payloads.
+
+## Discovery-call destination
+
+The current discovery-call CTA uses appointmentUrl in src/data/site.ts and points to /contact/.
+
+If a real external scheduling destination is added later, update that destination deliberately and verify the required external-link behavior.
 
 ## Pre-deployment checks
 
-Run:
+Run npm run quality and git diff --check before deployment.
 
-```bash
-npm run build
-git diff --check
-```
+Confirm that:
 
-Confirm the 404 page, legal pages, nine service pages, sitemap, robots file, official branding, Jordan clinician profile, appointment fallback, and Client Portal fallback are present in `dist/`.
+- all 14 HTML pages build successfully
+- all normal pages remain noindex, follow
+- the 404 remains noindex, nofollow
+- all four coaching detail pages are generated
+- the About, Services, How Coaching Works, Packages, FAQ, Contact, Privacy, and Terms pages are present
+- sitemap and robots files build correctly
+- no inherited therapy-demo branding or routes remain
+- the fictional-business disclosure remains present

@@ -3,13 +3,10 @@ import Button from './Button.astro';
 import { navigation } from '../data/navigation';
 import {
   appointmentUrl,
-  clientPortalUrl,
-  externalLinkAttrs,
   practice,
 } from '../data/site';
 
 const path = Astro.url.pathname;
-const portalAttrs = externalLinkAttrs();
 const isCurrent = (href: string) =>
   href === '/' ? path === '/' : path.startsWith(href);
 ---
@@ -59,15 +56,6 @@ const isCurrent = (href: string) =>
             </div>
           ))
         }
-
-        <a
-          href={clientPortalUrl}
-          target={portalAttrs.target}
-          rel={portalAttrs.rel}
-          data-track="client-portal"
-        >
-          Client Portal
-        </a>
       </nav>
     </details>
   </div>
@@ -130,17 +118,6 @@ const isCurrent = (href: string) =>
       <Button href={appointmentUrl} tracking="request-appointment">
         Book a discovery call
       </Button>
-
-      <a
-        class="rail-portal"
-        href={clientPortalUrl}
-        target={portalAttrs.target}
-        rel={portalAttrs.rel}
-        data-track="client-portal"
-      >
-        Current clients
-        <span>Client Portal ↗</span>
-      </a>
     </div>
   </aside>
 </header>
@@ -418,21 +395,6 @@ const isCurrent = (href: string) =>
 
     .rail-actions :global(.button) {
       width: 100%;
-    }
-
-    .rail-portal {
-      display: grid;
-      gap: .1rem;
-      color: var(--muted);
-      font-size: .68rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .rail-portal span {
-      color: var(--ink);
-      font-size: .8rem;
-      font-weight: 800;
     }
   }
 </style>

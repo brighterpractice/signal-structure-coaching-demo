@@ -4,7 +4,7 @@
 @media(max-width:47.999rem){.mobile-appointment{transition:opacity .18s ease,transform .18s ease;will-change:opacity,transform}.mobile-appointment.is-retreating{pointer-events:none;opacity:0;transform:translateY(calc(100% + 2rem))}.hero [data-track="request-appointment"],.section--dark [data-track="request-appointment"],footer [data-track="request-appointment"]{display:none}}
 @media(min-width:48rem){body{line-height:1.7}.container{width:min(100% - 4rem,var(--container))}.section{padding-block:var(--s7)}.grid--2{grid-template-columns:repeat(2,1fr)}.grid--3{grid-template-columns:repeat(3,1fr)}.card{padding:clamp(1.35rem,3vw,2.25rem)}.mobile-appointment{display:none}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-/* Align Therapy Group visual system */
+/* Signal & Structure visual system */
 
 body {
   background:
@@ -96,7 +96,7 @@ h3 {
   border-radius: .75rem !important;
 }
 
-/* Align footer cleanup */
+/* Signal & Structure footer cleanup */
 
 footer,
 .site-footer {
@@ -139,8 +139,8 @@ footer hr,
 }
 
 
-/* Align's structured desktop shell intentionally differs from the
-   horizontal navigation used by the other Brighter Sites demos. */
+/* Signal & Structure uses a structured desktop rail that intentionally
+   differs from the horizontal navigation used by other Brighter Sites demos. */
 @media (min-width:64rem) {
   body {
     padding-left: 18rem;

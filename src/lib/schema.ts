@@ -19,17 +19,6 @@ export function websiteSchema() {
   return { '@type': 'WebSite', name: site.practice.name, url: absoluteUrl('/') };
 }
 
-export function personSchema(pagePath: string) {
-  return {
-    '@type': 'Person',
-    name: site.clinician.name,
-    honorificSuffix: site.clinician.credentials,
-    jobTitle: site.clinician.title,
-    url: absoluteUrl(pagePath),
-    worksFor: { '@type': 'Organization', name: site.practice.name, url: absoluteUrl('/') },
-  };
-}
-
 // Mirrors the visually rendered breadcrumb trail, including the current page as the final item.
 export function breadcrumbSchema(crumbs: Crumb[], currentPath: string) {
   const items = [{ label: 'Home', href: '/' }, ...crumbs];
