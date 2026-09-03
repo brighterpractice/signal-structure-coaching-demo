@@ -26,11 +26,16 @@ const base = Astro.site ?? Astro.url.origin;
 const canonical = new URL(Astro.url.pathname, base);
 const socialImage = image ? new URL(image, base) : null;
 
-const analyticsConfig = JSON.stringify({
-  collectorUrl: 'https://analytics.brightersites.app',
-  siteKey: 'bs_live_36aa4c3a4ef339b3a2342c545f673c3676285ca7c140c319',
-  scriptVersion: '2.0.0',
-});
+const analyticsSiteKey =
+  import.meta.env.PUBLIC_BRIGHTER_ANALYTICS_SITE_KEY?.trim();
+
+const analyticsConfig = analyticsSiteKey
+  ? JSON.stringify({
+      collectorUrl: 'https://analytics.brightersites.app',
+      siteKey: analyticsSiteKey,
+      scriptVersion: '2.0.0',
+    })
+  : null;
 ---
 <!doctype html>
 <html lang="en" data-bs-analytics-page={noindex ? "404" : undefined}>
@@ -56,9 +61,8 @@ const analyticsConfig = JSON.stringify({
  <meta name="twitter:description" content={description} />
  {socialImage && <meta name="twitter:image" content={socialImage} />}
  {socialImage && <meta name="twitter:image:alt" content="Signal & Structure Coaching" />}
- <meta name="theme-color" content="#294c70" />
- <link rel="icon" type="image/png" sizes="32x32" href="/images/branding/favicon-32.png" />
- <link rel="apple-touch-icon" sizes="180x180" href="/images/branding/apple-touch-icon.png" />
+ <meta name="theme-color" content="#151a21" />
+ <link rel="icon" type="image/svg+xml" href="/images/branding/signal-structure-mark.svg" />
  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
  </head>
  <body>
@@ -69,16 +73,22 @@ const analyticsConfig = JSON.stringify({
  <Button id="mobile-appointment" href={appointmentUrl} tracking="request-appointment">Book a discovery call</Button>
  <script is:inline src="/scripts/site.js?v=6"></script>
 
-  <script
-    is:inline
-    type="application/json"
-    data-bs-analytics-config
-    set:html={analyticsConfig}
-  ></script>
-  <script
-    is:inline
-    src="/brighter-analytics.js?v=2.0.0"
-    defer
-  ></script>
+  {
+    analyticsConfig && (
+      <>
+        <script
+          is:inline
+          type="application/json"
+          data-bs-analytics-config
+          set:html={analyticsConfig}
+        ></script>
+        <script
+          is:inline
+          src="/brighter-analytics.js?v=2.0.0"
+          defer
+        ></script>
+      </>
+    )
+  }
  </body>
 </html>
