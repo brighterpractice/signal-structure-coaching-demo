@@ -1,12 +1,112 @@
 ---
 import LegalPage from '../components/LegalPage.astro';
+import { practice } from '../data/site';
 ---
-<LegalPage title="Website Terms of Use | Align Therapy Group" description="Read the terms for using the Align Therapy Group informational website." heading="Website Terms of Use" intro="These terms describe the appropriate use and limits of the Align Therapy Group website.">
- <section><h2>Informational purpose</h2><p>This website provides general information about Align Therapy Group, Jordan Ellis, LPC, and available counseling services. Website content is educational and informational. It is not individualized medical, mental-health, legal, or other professional advice.</p></section>
- <section><h2>No therapist-client relationship</h2><p>Visiting this website, reading its content, or submitting an appointment request does not by itself create a therapist-client relationship. A counseling relationship begins only after the practice and client complete the appropriate intake and consent process.</p></section>
- <section><h2>Emergencies and urgent needs</h2><p>Do not use this website, ordinary website communication, or an appointment request for an emergency or urgent mental-health need. If you or someone else may be in immediate danger, contact local emergency services or go to the nearest emergency department.</p></section>
- <section><h2>External links</h2><p>This website may link to third-party services for convenience. Align Therapy Group does not control unrelated external websites and is not responsible for their availability, content, or privacy practices.</p></section>
- <section><h2>Website content</h2><p>Unless otherwise noted, the text, branding, graphics, and other original website materials are provided for personal, noncommercial use. They may not be copied, republished, or presented as another person’s or organization’s work without permission.</p></section>
- <section><h2>Availability and accuracy</h2><p>Reasonable care is taken to keep website information useful and current. Align Therapy Group does not guarantee that every page will always be available or free from errors. Service information on the website does not promise that a particular service is appropriate or available to every visitor.</p></section>
- <section><h2>Changes to these terms</h2><p>These terms may be revised as the website or its services change. Continued use of the website is subject to the version published here.</p></section>
+
+<LegalPage
+  title="Website Terms of Use | Signal & Structure Coaching"
+  description="Read the terms for using the Signal & Structure Coaching informational website."
+  heading="Website Terms of Use"
+  intro="These terms describe the intended use and limitations of the Signal & Structure Coaching website."
+>
+  <section>
+    <h2>Informational purpose</h2>
+
+    <p>
+      This website provides general information about {practice.name} and the
+      coaching services presented here. Website content is informational and
+      educational and is not individualized medical, mental-health, legal,
+      financial, or other professional advice.
+    </p>
+  </section>
+
+  <section>
+    <h2>Coaching is not therapy</h2>
+
+    <p>
+      The services described on this website are presented as coaching focused
+      on goals, planning, organization, attention, routines, skills, and
+      follow-through. Coaching is not psychotherapy, mental-health treatment,
+      medical care, or diagnosis.
+    </p>
+  </section>
+
+  <section>
+    <h2>No coaching relationship from website use</h2>
+
+    <p>
+      Visiting this website, reading its content, sending a message, or
+      requesting a discovery call does not by itself create a coach-client
+      relationship. Any coaching relationship would begin only after the coach
+      and client separately agree to the applicable services, expectations,
+      and terms.
+    </p>
+  </section>
+
+  <section>
+    <h2>Emergencies and urgent needs</h2>
+
+    <p>
+      This website and the coaching services described here are not emergency
+      or crisis resources. Do not use ordinary website communication or a
+      discovery-call request for an emergency. If you or someone else may be
+      in immediate danger, contact the appropriate local emergency or crisis
+      resource.
+    </p>
+  </section>
+
+  <section>
+    <h2>External links and services</h2>
+
+    <p>
+      This website may link to third-party websites or services for
+      convenience. {practice.name} does not control unrelated external
+      services and is not responsible for their availability, content, terms,
+      or privacy practices.
+    </p>
+  </section>
+
+  <section>
+    <h2>Website content</h2>
+
+    <p>
+      Unless otherwise noted, the text, branding, graphics, layouts, and other
+      original website materials are provided for viewing and personal,
+      noncommercial use. They may not be copied, republished, or represented
+      as another person’s or organization’s work without permission.
+    </p>
+  </section>
+
+  <section>
+    <h2>Availability and accuracy</h2>
+
+    <p>
+      Reasonable care may be taken to keep website information useful and
+      current, but {practice.name} does not guarantee that every page will
+      always be available, complete, current, or free from errors. Information
+      about a coaching service does not guarantee that the service is
+      appropriate or available for every visitor.
+    </p>
+  </section>
+
+  <section>
+    <h2>Changes to these terms</h2>
+
+    <p>
+      These terms may be revised as the website, services, or business
+      practices change. Continued use of the website is subject to the version
+      published here.
+    </p>
+  </section>
+
+  <section>
+    <h2>Demonstration notice</h2>
+
+    <p>
+      Signal & Structure Coaching and Avery Reed are fictional. This website
+      was created as a Brighter Sites portfolio demonstration and does not
+      represent an operating coaching business or an offer of actual coaching
+      services.
+    </p>
+  </section>
 </LegalPage>
