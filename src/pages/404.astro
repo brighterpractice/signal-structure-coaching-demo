@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<Layout title="Page Not Found | Align Therapy Group" description="The requested page could not be found on the Align Therapy Group website." noindex>
+ <PageHero eyebrow="Page not found" title="We could not find that page." intro="The address may have changed, or the page may no longer be available." />
+ <section class="section">
+ <div class="container not-found-links" aria-label="Helpful pages">
+ <a class="button" href="/">Return home</a>
+ <a class="button button--outline" href="/services/">Explore services</a>
+ <a class="link-arrow" href="/contact/">Contact Align Therapy Group</a>
+ </div>
+ </section>
+</Layout>
+<style>.not-found-links{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.25rem}.not-found-links .link-arrow{display:inline-flex;min-height:44px;align-items:center}</style>

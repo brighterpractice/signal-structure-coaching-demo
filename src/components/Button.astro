@@ -1,0 +1,7 @@
+---
+import { externalLinkAttrs } from '../data/site';
+interface Props { href:string; variant?:'solid'|'light'|'outline'; tracking?:string; id?:string; target?:'_blank' }
+const {href,variant='solid',tracking,id,target}=Astro.props;
+const linkAttrs = externalLinkAttrs(target);
+---
+<a {href} {id} target={linkAttrs.target} rel={linkAttrs.rel} class:list={['button',variant!=='solid'&&`button--${variant}`,id==='mobile-appointment'&&'mobile-appointment']} data-track={tracking}><slot /></a>

@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from './PageHero.astro';
+import Button from './Button.astro';
+import type { Service } from '../data/services';
+import { services } from '../data/services';
+import type { ServicePageContent } from '../data/service-pages';
+import { appointmentUrl } from '../data/site';
+import { breadcrumbSchema, pageSchema } from '../lib/schema';
+
+interface Props {
+  service: Service;
+  content: ServicePageContent;
+}
+
+const { service, content } = Astro.props;
+const related = content.related
+  ?.map((item) => ({
+    ...item,
+    service: services.find((candidate) => candidate.slug === item.slug),
+  }))
+  .filter((item) => item.service?.published && item.service?.hasDetailPage);
+
+const allowedApproachHrefs = new Set([
+  '/approaches/',
+  '/approaches/internal-family-systems/',
+  '/approaches/somatic-experiencing/',
+]);
+
+const approachLinks = (content.approachLinks ?? []).filter((item) =>
+  allowedApproachHrefs.has(item.href)
+);
+
+const crumbs = [
+  { label: 'Services', href: '/services/' },
+  { label: service.title },
+];
+---
+
+<Layout
+  title={content.title}
+  description={content.description}
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="Clinical focus"
+    title={service.title}
+    intro={content.hero}
+    crumbs={crumbs}
+  />
+
+  <section class="brief">
+    <div class="container brief-grid">
+      <aside class="brief-index">
+        <p>ALIGN / SERVICE BRIEF</p>
+        <span>01</span>
+        <strong>Start here</strong>
+      </aside>
+
+      <div class="brief-copy">
+        <h2>{content.leadTitle}</h2>
+        {content.lead.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="signals">
+    <div class="container signals-grid">
+      <div class="signals-heading">
+        <p class="eyebrow">What you may recognize</p>
+        <h2>{content.experiencesTitle}</h2>
+        {content.experiencesIntro && <p>{content.experiencesIntro}</p>}
+      </div>
+
+      <ol class="signal-list">
+        {
+          content.experiences.map((experience, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <p>{experience}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="working-map">
+    <div class="container working-grid">
+      <div class="working-label">
+        <span>02</span>
+        <p>How the work may proceed</p>
+      </div>
+
+      <div class="working-copy">
+        <p class="eyebrow">A working map</p>
+        <h2>{content.approachTitle}</h2>
+        {content.approach.map((paragraph) => <p>{paragraph}</p>)}
+
+        {
+          approachLinks.length > 0 && (
+            <div class="method-links">
+              <p>Related methods</p>
+              {approachLinks.map((item) => (
+                <a href={item.href}>{item.label} ↗</a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    content.wholePersonTitle && content.wholePerson && (
+      <section class="perspective">
+        <div class="container perspective-inner">
+          <div>
+            <p class="eyebrow">Keep the larger picture</p>
+            <h2>{content.wholePersonTitle}</h2>
+          </div>
+
+          <div>
+            {content.wholePerson.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="next">
+    <div class="container next-grid">
+      <div>
+        <p class="eyebrow">Next</p>
+        <h2>Bring the question you actually have.</h2>
+        <p>
+          You do not need a diagnosis, a polished explanation, or certainty
+          that therapy is the right next step before contacting the practice.
+        </p>
+      </div>
+
+      <div class="next-actions">
+        <Button
+          href={appointmentUrl}
+          variant="light"
+          tracking="request-appointment"
+        >
+          Request an appointment
+        </Button>
+
+        {
+          related && related.length > 0 && (
+            <div>
+              {related.map((item) => (
+                <a href={item.service!.href}>{item.label} →</a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .brief,
+  .signals,
+  .working-map,
+  .perspective,
+  .next {
+    padding: clamp(4rem,8vw,7rem) 0;
+  }
+
+  .brief-grid,
+  .signals-grid,
+  .working-grid,
+  .perspective-inner,
+  .next-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .brief-index {
+    display: grid;
+    align-content: start;
+    gap: .4rem;
+    padding-top: .5rem;
+    border-top: 3px solid #5f82ad;
+  }
+
+  .brief-index p,
+  .working-label p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .brief-index span,
+  .working-label span {
+    color: #5f82ad;
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .brief-index strong {
+    color: var(--ink);
+    font-size: .9rem;
+  }
+
+  .brief-copy {
+    max-width: 49rem;
+  }
+
+  .brief-copy p {
+    font-size: 1.08rem;
+  }
+
+  .signals {
+    background: #edf4fb;
+  }
+
+  .signals-heading {
+    max-width: 34rem;
+  }
+
+  .signal-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #bfcfe0;
+  }
+
+  .signal-list li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #bfcfe0;
+  }
+
+  .signal-list span {
+    color: #5f82ad;
+    font-size: .7rem;
+    font-weight: 800;
+  }
+
+  .signal-list p {
+    margin: 0;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  .working-map {
+    background: #0b1d3a;
+    color: #dbe7f3;
+  }
+
+  .working-map h2 {
+    color: white;
+  }
+
+  .working-map .eyebrow {
+    color: #b5c8df;
+  }
+
+  .working-label {
+    align-self: start;
+    padding-top: .8rem;
+    border-top: 1px solid rgba(255,255,255,.25);
+  }
+
+  .working-label p {
+    color: #aebed0;
+  }
+
+  .working-label span {
+    color: #b5c8df;
+  }
+
+  .working-copy {
+    max-width: 50rem;
+  }
+
+  .method-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.18);
+  }
+
+  .method-links p {
+    flex-basis: 100%;
+    color: #91aac4;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .method-links a {
+    color: white;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .perspective {
+    background:
+      linear-gradient(110deg, #f8fbff 0%, #e6eef7 100%);
+  }
+
+  .next {
+    background: #294c70;
+    color: #dbe7f3;
+  }
+
+  .next h2 {
+    color: white;
+  }
+
+  .next .eyebrow {
+    color: #bfd0e3;
+  }
+
+  .next-actions {
+    display: grid;
+    align-content: end;
+    gap: 1.25rem;
+  }
+
+  .next-actions > div {
+    display: grid;
+    gap: .4rem;
+  }
+
+  .next-actions > div a {
+    color: white;
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @media (min-width:48rem) {
+    .brief-grid {
+      grid-template-columns: 12rem minmax(0,1fr);
+      gap: clamp(3rem,7vw,8rem);
+    }
+
+    .signals-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+
+    .signal-list {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .signal-list li:nth-child(odd) {
+      padding-right: 1.5rem;
+    }
+
+    .signal-list li:nth-child(even) {
+      padding-left: 1.5rem;
+      border-left: 1px solid #bfcfe0;
+    }
+
+    .working-grid {
+      grid-template-columns: 12rem minmax(0,1fr);
+      gap: clamp(3rem,7vw,8rem);
+    }
+
+    .perspective-inner,
+    .next-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,7vw,7rem);
+      align-items: end;
+    }
+  }
+</style>

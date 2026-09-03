@@ -1,0 +1,364 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { breadcrumbSchema, pageSchema } from '../../lib/schema';
+
+const crumbs = [{ label: 'About Align Therapy Group' }];
+---
+
+<Layout
+  title="About Align Therapy Group | Madison, Wisconsin"
+  description="Learn about the structure, values, and focus of Align Therapy Group, a fictional individual counseling practice in Madison."
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="Practice profile"
+    title="A practice organized around clarity—not performance."
+    intro="Align Therapy Group is a fictional Madison counseling practice designed for adults who want to understand recurring patterns without being reduced to a diagnosis or pushed through a formula."
+    crumbs={crumbs}
+  />
+
+  <section class="definition">
+    <div class="container definition-grid">
+      <aside>
+        <span>01</span>
+        <p>WHAT “ALIGN” MEANS</p>
+      </aside>
+
+      <div>
+        <h2>Not perfect balance. A more honest relationship between what you know, feel, need, and do.</h2>
+
+        <p>
+          People often arrive in therapy because one part of life no longer
+          fits with another. You may understand a pattern intellectually and
+          still repeat it. You may value connection and protect yourself
+          through distance. You may appear capable while privately running out
+          of room.
+        </p>
+
+        <p>
+          The work is not about making every part of life feel settled.
+          It is about recognizing where choice has narrowed and creating enough
+          clarity to respond differently.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="operating-principles">
+    <div class="container">
+      <div class="principle-heading">
+        <p class="eyebrow">How the practice operates</p>
+        <h2>Four commitments that shape the room.</h2>
+      </div>
+
+      <ol>
+        <li>
+          <span>01</span>
+          <h3>Name the pattern</h3>
+          <p>
+            Therapy should make the problem more understandable, not surround
+            it with unnecessary language.
+          </p>
+        </li>
+        <li>
+          <span>02</span>
+          <h3>Explain the method</h3>
+          <p>
+            You can ask what Jordan is noticing, why an approach is being
+            considered, and what other directions are available.
+          </p>
+        </li>
+        <li>
+          <span>03</span>
+          <h3>Keep context visible</h3>
+          <p>
+            Relationships, culture, responsibilities, health, values, and
+            practical realities affect what change can look like.
+          </p>
+        </li>
+        <li>
+          <span>04</span>
+          <h3>Adjust in real time</h3>
+          <p>
+            Feedback is part of the process. Pacing and language can change
+            when something does not fit.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="scope">
+    <div class="container scope-grid">
+      <div>
+        <p class="eyebrow">Practice scope</p>
+        <h2>Focused enough to be clear about what is offered.</h2>
+      </div>
+
+      <dl>
+        <div><dt>Format</dt><dd>Individual counseling</dd></div>
+        <div><dt>Population</dt><dd>Adults</dd></div>
+        <div><dt>Location</dt><dd>Madison, Wisconsin</dd></div>
+        <div><dt>Not presented as</dt><dd>Couples therapy or emergency support</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="begin-map">
+    <div class="container begin-grid">
+      <div>
+        <p class="eyebrow">Choose an entry point</p>
+        <h2>Start with the concern or start with the method.</h2>
+      </div>
+
+      <div class="begin-links">
+        <a href="/services/">
+          <span>01 / SERVICES</span>
+          <strong>What keeps happening?</strong>
+          <p>Explore anxiety, trauma responses, disconnection, relationship patterns, and related concerns.</p>
+          <b>Open the focus map ↗</b>
+        </a>
+
+        <a href="/approaches/">
+          <span>02 / APPROACHES</span>
+          <strong>How might therapy work with it?</strong>
+          <p>Review IFS, Somatic Experiencing, attachment-focused work, and present-moment awareness.</p>
+          <b>Open the method map ↗</b>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="jordan-band">
+    <div class="container jordan-grid">
+      <div class="identity-mark" aria-hidden="true">
+        <span>JE</span>
+        <div></div>
+      </div>
+
+      <div>
+        <p class="eyebrow">The counselor behind the structure</p>
+        <h2>Meet Jordan Ellis, LPC.</h2>
+        <p>
+          Learn how Jordan describes her working style, the questions she pays
+          attention to, and the methods she may bring into individual therapy.
+        </p>
+        <a href="/about/jordan-ellis/">Open Jordan’s profile →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .definition,
+  .operating-principles,
+  .scope,
+  .begin-map,
+  .jordan-band {
+    padding: clamp(4rem,8vw,7rem) 0;
+  }
+
+  .definition-grid,
+  .scope-grid,
+  .begin-grid,
+  .jordan-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .definition aside {
+    align-self: start;
+    padding-top: .75rem;
+    border-top: 3px solid #5f82ad;
+  }
+
+  .definition aside span {
+    color: #5f82ad;
+    font-size: 2.4rem;
+    font-weight: 800;
+  }
+
+  .definition aside p {
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .definition h2 {
+    max-width: 27ch;
+  }
+
+  .definition-grid > div {
+    max-width: 52rem;
+  }
+
+  .operating-principles {
+    background: #edf4fb;
+  }
+
+  .principle-heading {
+    max-width: 44rem;
+  }
+
+  .operating-principles ol {
+    display: grid;
+    gap: 1px;
+    margin: 3rem 0 0;
+    padding: 1px;
+    background: #bfcfe0;
+    list-style: none;
+  }
+
+  .operating-principles li {
+    padding: 1.4rem;
+    background: #f8fbff;
+  }
+
+  .operating-principles li span {
+    color: #5f82ad;
+    font-size: .7rem;
+    font-weight: 800;
+  }
+
+  .operating-principles li h3 {
+    margin-top: 2.25rem;
+  }
+
+  .scope {
+    background: white;
+  }
+
+  .scope dl {
+    display: grid;
+    margin: 0;
+    border-top: 1px solid var(--sand);
+  }
+
+  .scope dl div {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .scope dt {
+    color: #5f82ad;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .scope dd {
+    margin: 0;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .begin-map {
+    background: #f8fbff;
+  }
+
+  .begin-links {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .begin-links a {
+    display: grid;
+    gap: .6rem;
+    padding: 1.4rem;
+    border: 1px solid var(--sand);
+    background: white;
+    color: var(--body);
+    text-decoration: none;
+  }
+
+  .begin-links a:hover {
+    border-color: #5f82ad;
+    box-shadow: 0 16px 40px rgba(11,29,58,.08);
+  }
+
+  .begin-links span {
+    color: #5f82ad;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+  }
+
+  .begin-links strong {
+    color: var(--ink);
+    font-size: 1.15rem;
+  }
+
+  .begin-links b {
+    color: #3f648d;
+    font-size: .8rem;
+  }
+
+  .jordan-band {
+    background: #0b1d3a;
+    color: #dbe7f3;
+  }
+
+  .jordan-band h2 {
+    color: white;
+  }
+
+  .jordan-band .eyebrow {
+    color: #b5c8df;
+  }
+
+  .jordan-band a {
+    color: white;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .identity-mark {
+    display: grid;
+    width: 12rem;
+    aspect-ratio: 1;
+    place-content: center;
+    border: 1px solid rgba(255,255,255,.28);
+    color: white;
+  }
+
+  .identity-mark span {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -.08em;
+  }
+
+  .identity-mark div {
+    width: 4rem;
+    height: 3px;
+    margin-top: .5rem;
+    background: #a9bed6;
+  }
+
+  @media (min-width:48rem) {
+    .definition-grid {
+      grid-template-columns: 12rem minmax(0,1fr);
+      gap: clamp(3rem,7vw,8rem);
+    }
+
+    .operating-principles ol {
+      grid-template-columns: repeat(4,1fr);
+    }
+
+    .scope-grid,
+    .begin-grid,
+    .jordan-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+
+    .begin-links {
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+</style>

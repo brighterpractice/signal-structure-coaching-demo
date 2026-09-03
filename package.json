@@ -1,0 +1,19 @@
+{
+  "name": "align-therapy-demo",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/quality-check.mjs",
+    "preview": "astro preview",
+    "astro": "astro",
+    "quality": "npm run test:analytics && npm run build",
+    "test:analytics": "node --test scripts/analytics-v2-tracker.test.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.2.2"
+  }
+}

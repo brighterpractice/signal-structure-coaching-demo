@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from './PageHero.astro';
+import { breadcrumbSchema, pageSchema } from '../lib/schema';
+
+interface Props { title: string; description: string; heading: string; intro: string }
+const { title, description, heading, intro } = Astro.props;
+const crumbs = [{ label: heading }];
+---
+<Layout {title} {description} schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}>
+ <PageHero eyebrow="Website information" title={heading} intro={intro} crumbs={crumbs} />
+ <section class="section">
+ <div class="container legal-content"><slot /></div>
+ </section>
+</Layout>
+
+<style>
+ .legal-content{max-width:48rem}.legal-content :global(section+section){margin-top:2.25rem;padding-top:2.25rem;border-top:1px solid var(--sand)}.legal-content :global(h2){font-size:var(--lg)}.legal-content :global(ul){margin:.75rem 0 0;padding-left:1.25rem}.legal-content :global(li+li){margin-top:.55rem}@media(min-width:48rem){.legal-content :global(section+section){margin-top:3rem;padding-top:3rem}}
+</style>

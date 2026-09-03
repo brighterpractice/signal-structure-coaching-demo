@@ -1,0 +1,200 @@
+---
+import {
+  clientPortalUrl,
+  practice,
+  externalLinkAttrs,
+} from '../data/site';
+
+const portalAttrs = externalLinkAttrs();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-identity">
+      <img
+        src="/images/branding/align-icon.png"
+        alt=""
+        width="72"
+        height="84"
+        loading="lazy"
+      />
+
+      <div>
+        <p class="name">{practice.name}</p>
+        <p>Individual counseling for adults</p>
+        <span>{practice.city}, {practice.state}</span>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <p class="footer-label">Navigate</p>
+      <a href="/about/">Practice profile</a>
+      <a href="/services/">Focus map</a>
+      <a href="/approaches/">Method map</a>
+      <a href="/contact/">Start here</a>
+    </div>
+
+    <div class="footer-clients">
+      <p class="footer-label">Current clients</p>
+      <a
+        href={clientPortalUrl}
+        target={portalAttrs.target}
+        rel={portalAttrs.rel}
+        data-track="client-portal"
+      >
+        Client Portal ↗
+      </a>
+    </div>
+
+    <div class="footer-demo">
+      <p class="footer-label">Design demonstration</p>
+      <p>
+        Align Therapy Group and Jordan Ellis are fictional. This site
+        demonstrates a structured, modern therapy-practice direction created
+        by Brighter Sites.
+      </p>
+      <a
+        href="https://brightersites.app/work/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Brighter Sites work ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© {new Date().getFullYear()} {practice.name}</span>
+
+    <span class="legal-links">
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </span>
+
+    <span class="signature">
+      Built and managed by{" "}
+      <a
+        href="https://brightersites.app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Brighter Sites
+      </a>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 4.5rem 0 2rem;
+    background: #0b1d3a;
+    color: #aebed0;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .footer-identity {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .footer-identity img {
+    width: 3.3rem;
+    height: auto;
+  }
+
+  .name {
+    margin: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  .footer-identity p:not(.name) {
+    margin: .25rem 0 0;
+    color: #cdd9e5;
+    font-size: .82rem;
+  }
+
+  .footer-identity span {
+    font-size: .75rem;
+  }
+
+  .footer-label {
+    margin: 0 0 .8rem;
+    color: #7898b9;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .footer-nav,
+  .footer-clients {
+    display: grid;
+    align-content: start;
+  }
+
+  .footer-nav a,
+  .footer-clients a,
+  .footer-demo a {
+    display: flex;
+    width: fit-content;
+    min-height: 40px;
+    align-items: center;
+    color: #e5edf5;
+    font-size: .84rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .footer-demo p:not(.footer-label) {
+    max-width: 28rem;
+    font-size: .82rem;
+    line-height: 1.65;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem 1.25rem;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid rgba(255,255,255,.13);
+    color: #7890a8;
+    font-size: .7rem;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer-bottom a {
+    color: #b8c8d8;
+    text-decoration: none;
+  }
+
+  .signature a {
+    font-weight: 750;
+  }
+
+  @media (min-width:48rem) {
+    .footer-grid {
+      grid-template-columns: 1.1fr .55fr .55fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .footer-nav a,
+    .footer-clients a,
+    .footer-demo a {
+      min-height: 0;
+      padding: .28rem 0;
+    }
+  }
+</style>

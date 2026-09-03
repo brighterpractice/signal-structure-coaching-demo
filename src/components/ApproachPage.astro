@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from './PageHero.astro';
+import Button from './Button.astro';
+import type { Approach } from '../data/approaches';
+import { appointmentUrl } from '../data/site';
+import { breadcrumbSchema, pageSchema } from '../lib/schema';
+
+interface Props {
+  approach: Approach;
+}
+
+const { approach } = Astro.props;
+const crumbs = [
+  { label: 'Approaches', href: '/approaches/' },
+  { label: approach.shortTitle },
+];
+---
+
+<Layout
+  title={approach.seoTitle ?? `${approach.title} in Madison, Wisconsin`}
+  description={approach.description}
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="Method note"
+    title={approach.title}
+    intro={approach.hero}
+    crumbs={crumbs}
+  />
+
+  <section class="method-map">
+    <div class="container method-grid">
+      <aside>
+        <p>ALIGN / APPROACH</p>
+        <strong>{approach.shortTitle}</strong>
+      </aside>
+
+      <div class="method-sections">
+        <article>
+          <span>01 / CONCEPT</span>
+          <h2>{approach.whatItIsTitle}</h2>
+          {approach.whatItIs.map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+
+        <article>
+          <span>02 / IN SESSION</span>
+          <h2>{approach.sessionTitle}</h2>
+          {approach.session.map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+
+        <article class="control">
+          <span>03 / YOUR CONTROL</span>
+          <h2>{approach.considerationsTitle}</h2>
+
+          <ol>
+            {
+              approach.considerations.map((item, index) => (
+                <li>
+                  <b>{String(index + 1).padStart(2, '0')}</b>
+                  <p>{item}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="related">
+    <div class="container related-grid">
+      <div>
+        <p class="eyebrow">Connect the method to the concern</p>
+        <h2>Continue the map.</h2>
+      </div>
+
+      <div class="related-links">
+        {
+          approach.related.map((item) => (
+            <a href={item.href}>
+              <span>{item.label}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="method-next">
+    <div class="container next-grid">
+      <div>
+        <p class="eyebrow">A method is not a commitment</p>
+        <h2>Ask what it is, why it might help, and what the alternatives are.</h2>
+      </div>
+
+      <div>
+        <p>
+          Jordan can explain the reasoning behind a method before using it.
+          You can question it, slow it down, or decide that another direction
+          fits better.
+        </p>
+
+        <Button
+          href={appointmentUrl}
+          variant="light"
+          tracking="request-appointment"
+        >
+          Request an appointment
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .method-map,
+  .related,
+  .method-next {
+    padding: clamp(4rem,8vw,7rem) 0;
+  }
+
+  .method-grid,
+  .related-grid,
+  .next-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .method-grid > aside {
+    align-self: start;
+    padding-top: .8rem;
+    border-top: 3px solid #5f82ad;
+  }
+
+  .method-grid > aside p {
+    margin: 0 0 .5rem;
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .method-grid > aside strong {
+    color: var(--ink);
+    font-size: 1.1rem;
+  }
+
+  .method-sections {
+    display: grid;
+  }
+
+  .method-sections article {
+    padding: 0 0 3.5rem;
+  }
+
+  .method-sections article + article {
+    padding-top: 3.5rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .method-sections article > span {
+    display: block;
+    margin-bottom: 1rem;
+    color: #5f82ad;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .method-sections h2 {
+    max-width: 24ch;
+  }
+
+  .method-sections article > p {
+    max-width: 49rem;
+  }
+
+  .control ol {
+    display: grid;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--sand);
+  }
+
+  .control li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .control b {
+    color: #5f82ad;
+    font-size: .7rem;
+  }
+
+  .control p {
+    margin: 0;
+  }
+
+  .related {
+    background: #edf4fb;
+  }
+
+  .related-links {
+    display: grid;
+    border-top: 1px solid #bfcfe0;
+  }
+
+  .related-links a {
+    display: flex;
+    min-height: 4rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid #bfcfe0;
+    color: var(--ink);
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .related-links a:hover {
+    padding-left: .75rem;
+    background: rgba(255,255,255,.65);
+  }
+
+  .method-next {
+    background: #0b1d3a;
+    color: #dbe7f3;
+  }
+
+  .method-next h2 {
+    color: white;
+  }
+
+  .method-next .eyebrow {
+    color: #b5c8df;
+  }
+
+  .method-next .button {
+    margin-top: 1.25rem;
+  }
+
+  @media (min-width:48rem) {
+    .method-grid {
+      grid-template-columns: 12rem minmax(0,1fr);
+      gap: clamp(3rem,7vw,8rem);
+    }
+
+    .related-grid,
+    .next-grid {
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+  }
+</style>

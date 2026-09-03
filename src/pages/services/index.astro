@@ -1,0 +1,227 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { services } from '../../data/services';
+import { breadcrumbSchema, pageSchema } from '../../lib/schema';
+
+const crumbs = [{ label: 'Services' }];
+const detailServices = services.filter(
+  (service) => service.published && service.hasDetailPage
+);
+const overviewServices = services.filter(
+  (service) => service.published && !service.hasDetailPage
+);
+---
+
+<Layout
+  title="Therapy Services in Madison, Wisconsin"
+  description="Focused individual counseling for trauma, anxiety, depression, relationship patterns, grief, life transitions, and chronic health concerns."
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="Focus map"
+    title="Begin with the pattern that keeps returning."
+    intro="A service label is a starting point, not a box. Choose the closest entry—or reach out with your own words."
+    crumbs={crumbs}
+  />
+
+  <section class="primary">
+    <div class="container primary-grid">
+      <div class="section-code">
+        <span>01</span>
+        <p>Detailed focus areas</p>
+      </div>
+
+      <div class="service-rows">
+        {
+          detailServices.map((service, index) => (
+            <a href={service.href}>
+              <b>{String(index + 1).padStart(2, '0')}</b>
+              <div>
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+              </div>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="additional" id="areas-of-support">
+    <div class="container additional-grid">
+      <div>
+        <p class="eyebrow">Also within the work</p>
+        <h2>Some concerns do not need a separate page to have a place here.</h2>
+        <p>
+          These experiences can be addressed within individual counseling and
+          may overlap with one or more of the detailed focus areas.
+        </p>
+      </div>
+
+      <div class="additional-list">
+        {
+          overviewServices.map((service) => (
+            <article>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="service-guide">
+    <div class="container guide-grid">
+      <div>
+        <p class="eyebrow">Concern versus method</p>
+        <h2>What brings you in is different from how the work proceeds.</h2>
+      </div>
+
+      <div>
+        <p>
+          Services describe the experience receiving attention. Approaches
+          describe frameworks Jordan may use to understand and work with it.
+          More than one method may fit the same concern.
+        </p>
+        <a href="/approaches/">View the approach map →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .primary,
+  .additional,
+  .service-guide {
+    padding: clamp(4rem,8vw,7rem) 0;
+  }
+
+  .primary-grid,
+  .additional-grid,
+  .guide-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .section-code {
+    align-self: start;
+    padding-top: .75rem;
+    border-top: 3px solid #5f82ad;
+  }
+
+  .section-code span {
+    color: #5f82ad;
+    font-size: 2.4rem;
+    font-weight: 800;
+  }
+
+  .section-code p {
+    color: var(--muted);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .service-rows {
+    display: grid;
+    border-top: 1px solid var(--sand);
+  }
+
+  .service-rows a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--sand);
+    color: var(--body);
+    text-decoration: none;
+    transition: padding .18s ease,background .18s ease;
+  }
+
+  .service-rows a:hover {
+    padding-inline: 1rem;
+    background: #edf4fb;
+  }
+
+  .service-rows b {
+    color: #5f82ad;
+    font-size: .7rem;
+  }
+
+  .service-rows h2 {
+    margin-bottom: .35rem;
+    font-size: clamp(1.35rem,2vw,1.9rem);
+  }
+
+  .service-rows p {
+    max-width: 48rem;
+    font-size: .95rem;
+  }
+
+  .service-rows > a > span {
+    color: #3f648d;
+  }
+
+  .additional {
+    background: #edf4fb;
+  }
+
+  .additional-list {
+    display: grid;
+    gap: 1px;
+    background: #bfcfe0;
+  }
+
+  .additional-list article {
+    padding: 1.25rem;
+    background: #f8fbff;
+  }
+
+  .additional-list h3 {
+    font-size: 1rem;
+  }
+
+  .additional-list p {
+    font-size: .92rem;
+  }
+
+  .service-guide {
+    background: #0b1d3a;
+    color: #dbe7f3;
+  }
+
+  .service-guide h2 {
+    color: white;
+  }
+
+  .service-guide .eyebrow {
+    color: #b5c8df;
+  }
+
+  .service-guide a {
+    color: white;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  @media (min-width:48rem) {
+    .primary-grid {
+      grid-template-columns: 12rem minmax(0,1fr);
+      gap: clamp(3rem,7vw,8rem);
+    }
+
+    .additional-grid,
+    .guide-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+
+    .additional-list {
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+</style>

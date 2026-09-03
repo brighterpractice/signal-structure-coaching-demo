@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://align.brightersites.app/sitemap.xml

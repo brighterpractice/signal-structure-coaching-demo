@@ -1,0 +1,84 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import { appointmentUrl, practice } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+ title: string;
+ description: string;
+ image?: string;
+ schema?: Record<string, unknown>;
+ noindex?: boolean;
+}
+
+const {
+ title,
+ description,
+ image = '/images/branding/align-wordmark.png',
+ schema,
+ noindex = false,
+} = Astro.props;
+const siteName = practice.name;
+const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+const base = Astro.site ?? Astro.url.origin;
+const canonical = new URL(Astro.url.pathname, base);
+const socialImage = new URL(image, base);
+
+const analyticsConfig = JSON.stringify({
+  collectorUrl: 'https://analytics.brightersites.app',
+  siteKey: 'bs_live_36aa4c3a4ef339b3a2342c545f673c3676285ca7c140c319',
+  scriptVersion: '2.0.0',
+});
+---
+<!doctype html>
+<html lang="en" data-bs-analytics-page={noindex ? "404" : undefined}>
+ <head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="generator" content={Astro.generator} />
+ <title>{pageTitle}</title>
+ <meta name="description" content={description} />
+ <meta name="robots" content={noindex ? "noindex, nofollow" : "noindex, follow"} />
+ {!noindex && <link rel="canonical" href={canonical} />}
+ <meta property="og:type" content="website" />
+ <meta property="og:site_name" content={siteName} />
+ <meta property="og:title" content={pageTitle} />
+ <meta property="og:description" content={description} />
+ {!noindex && <meta property="og:url" content={canonical} />}
+ <meta property="og:image" content={socialImage} />
+ <meta property="og:image:width" content="1200" />
+ <meta property="og:image:height" content="630" />
+ <meta property="og:image:alt" content="Align Therapy Group" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content={pageTitle} />
+ <meta name="twitter:description" content={description} />
+ <meta name="twitter:image" content={socialImage} />
+ <meta name="twitter:image:alt" content="Align Therapy Group" />
+ <meta name="theme-color" content="#294c70" />
+ <link rel="icon" type="image/png" sizes="32x32" href="/images/branding/favicon-32.png" />
+ <link rel="apple-touch-icon" sizes="180x180" href="/images/branding/apple-touch-icon.png" />
+ {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+ </head>
+ <body>
+ <a class="skip-link" href="#main-content">Skip to main content</a>
+ <Header />
+ <main id="main-content"><slot /></main>
+ <Footer />
+ <Button id="mobile-appointment" href={appointmentUrl} tracking="request-appointment">Request appointment</Button>
+ <script is:inline src="/scripts/site.js?v=6"></script>
+
+  <script
+    is:inline
+    type="application/json"
+    data-bs-analytics-config
+    set:html={analyticsConfig}
+  ></script>
+  <script
+    is:inline
+    src="/brighter-analytics.js?v=2.0.0"
+    defer
+  ></script>
+ </body>
+</html>

@@ -1,0 +1,143 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro: string;
+  crumbs?: { label: string; href?: string }[];
+}
+
+const { eyebrow, title, intro, crumbs } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="hero-accent" aria-hidden="true"></div>
+
+  <div class="container page-hero-grid">
+    <div class="hero-meta">
+      {crumbs && <Breadcrumbs items={crumbs} />}
+
+      {eyebrow && (
+        <div class="hero-label">
+          <span></span>
+          <p>{eyebrow}</p>
+        </div>
+      )}
+    </div>
+
+    <div class="hero-main">
+      <h1>{title}</h1>
+
+      <div class="intro-wrap">
+        <span class="intro-rule" aria-hidden="true"></span>
+        <p class="intro">{intro}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3.75rem, 8vw, 7rem) 0;
+    background:
+      linear-gradient(
+        120deg,
+        #f8fbfe 0%,
+        #eef4fa 60%,
+        #e6eef7 100%
+      );
+  }
+
+  .hero-accent {
+    position: absolute;
+    width: 24rem;
+    height: 24rem;
+    right: -10rem;
+    top: -12rem;
+    border: 1px solid rgba(95,130,173,.22);
+    border-radius: 50%;
+  }
+
+  .hero-accent:after {
+    content: "";
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    left: -3rem;
+    bottom: -4rem;
+    border: 1px solid rgba(95,130,173,.24);
+    border-radius: 50%;
+  }
+
+  .page-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .hero-meta {
+    align-self: start;
+  }
+
+  .hero-label {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    margin-top: 1.2rem;
+  }
+
+  .hero-label span {
+    display: block;
+    width: 2.25rem;
+    height: 2px;
+    background: #5f82ad;
+  }
+
+  .hero-label p {
+    margin: 0;
+    color: #496b91;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .hero-main h1 {
+    max-width: 17ch;
+    margin: 0;
+    font-size: clamp(2.65rem, 6vw, 5rem);
+    line-height: .98;
+  }
+
+  .intro-wrap {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 1.1rem;
+    max-width: 46rem;
+    margin-top: 2rem;
+  }
+
+  .intro-rule {
+    border-radius: 999px;
+    background: #a9bed6;
+  }
+
+  .intro {
+    margin: 0;
+    color: #52677d;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    line-height: 1.65;
+  }
+
+  @media (min-width:48rem) {
+    .page-hero-grid {
+      grid-template-columns: minmax(12rem,.35fr) minmax(0,1fr);
+      gap: clamp(3rem,7vw,7rem);
+      align-items: start;
+    }
+  }
+</style>

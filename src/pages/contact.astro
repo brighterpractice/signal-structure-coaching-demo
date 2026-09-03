@@ -1,0 +1,327 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Button from '../components/Button.astro';
+import {
+  appointmentUrl,
+  clientPortalUrl,
+  externalLinkAttrs,
+} from '../data/site';
+import { breadcrumbSchema, pageSchema } from '../lib/schema';
+
+const portalAttrs = externalLinkAttrs();
+const crumbs = [{ label: 'Contact' }];
+---
+
+<Layout
+  title="Contact Align Therapy Group | Madison, Wisconsin"
+  description="Request an individual counseling appointment with Jordan Ellis, LPC, at Align Therapy Group in Madison."
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="Start here"
+    title="Tell us only what we need to know to begin."
+    intro="A first request should establish contact—not ask you to place your clinical history into an ordinary message."
+    crumbs={crumbs}
+  />
+
+  <section class="contact-start" id="new-clients">
+    <div class="container start-grid">
+      <aside>
+        <span>01</span>
+        <p>NEW CLIENT</p>
+      </aside>
+
+      <div class="start-copy">
+        <p class="eyebrow">Request a conversation</p>
+        <h2>Begin with availability and fit.</h2>
+        <p>
+          Use the appointment request to share basic contact information and
+          ask about scheduling. Detailed clinical, insurance, and intake
+          information belongs in the appropriate secure system after the next
+          step is established.
+        </p>
+
+        <div class="privacy-line">
+          <strong>Please leave out:</strong>
+          <span>
+            diagnoses, medication details, trauma history, insurance numbers,
+            or urgent safety information.
+          </span>
+        </div>
+
+        <Button href={appointmentUrl} tracking="request-appointment">
+          Request an appointment
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="container">
+      <p class="eyebrow">What happens next</p>
+      <h2>A short path from request to first session.</h2>
+
+      <ol>
+        <li>
+          <span>01</span>
+          <h3>Request</h3>
+          <p>Send basic contact and scheduling information.</p>
+        </li>
+        <li>
+          <span>02</span>
+          <h3>Clarify</h3>
+          <p>Review availability, practical details, and whether the practice may fit.</p>
+        </li>
+        <li>
+          <span>03</span>
+          <h3>Complete securely</h3>
+          <p>Use the designated system for intake and other private information.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact-reference">
+    <div class="container reference-grid">
+      <div>
+        <p class="eyebrow">Practice reference</p>
+        <h2>Align Therapy Group</h2>
+      </div>
+
+      <dl>
+        <div><dt>Location</dt><dd>Madison, Wisconsin</dd></div>
+        <div><dt>Service</dt><dd>Individual counseling for adults</dd></div>
+        <div>
+          <dt>Existing clients</dt>
+          <dd>
+            <a
+              href={clientPortalUrl}
+              target={portalAttrs.target}
+              rel={portalAttrs.rel}
+              data-track="client-portal"
+            >
+              Open Client Portal ↗
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="safety">
+    <div class="container safety-grid">
+      <div>
+        <p class="eyebrow">Urgent needs</p>
+        <h2>This website is not monitored for emergencies.</h2>
+      </div>
+
+      <p>
+        Do not use an appointment request for immediate or urgent support.
+        If there is immediate danger, contact local emergency services or go
+        to the nearest emergency department.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container faq-grid">
+      <div>
+        <p class="eyebrow">Before you request</p>
+        <h2>Three useful answers.</h2>
+      </div>
+
+      <div>
+        <details>
+          <summary>Does Align provide couples therapy?</summary>
+          <p>
+            No. This demonstration presents individual counseling for adults,
+            including individual work related to relationship patterns.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do I need to choose a therapy method first?</summary>
+          <p>
+            No. You can begin with the concern. Jordan can explain possible
+            approaches as the work becomes clearer.
+          </p>
+        </details>
+
+        <details>
+          <summary>Where can I learn about Jordan?</summary>
+          <p>
+            Read <a href="/about/jordan-ellis/">Jordan’s clinician profile</a>
+            and review the demonstration disclosure included there.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-start,
+  .steps,
+  .contact-reference,
+  .safety,
+  .faq {
+    padding: clamp(4rem,8vw,7rem) 0;
+  }
+
+  .start-grid,
+  .reference-grid,
+  .safety-grid,
+  .faq-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .start-grid > aside {
+    align-self: start;
+    padding-top: .75rem;
+    border-top: 3px solid #5f82ad;
+  }
+
+  .start-grid > aside span {
+    color: #5f82ad;
+    font-size: 2.4rem;
+    font-weight: 800;
+  }
+
+  .start-grid > aside p {
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .start-copy {
+    max-width: 50rem;
+  }
+
+  .privacy-line {
+    display: grid;
+    gap: .35rem;
+    margin: 1.75rem 0;
+    padding: 1.2rem;
+    border-left: 4px solid #5f82ad;
+    background: #edf4fb;
+  }
+
+  .privacy-line strong {
+    color: var(--ink);
+  }
+
+  .steps {
+    background: #edf4fb;
+  }
+
+  .steps > .container > h2 {
+    max-width: 28ch;
+  }
+
+  .steps ol {
+    display: grid;
+    gap: 1px;
+    margin: 3rem 0 0;
+    padding: 1px;
+    background: #bfcfe0;
+    list-style: none;
+  }
+
+  .steps li {
+    padding: 1.4rem;
+    background: #f8fbff;
+  }
+
+  .steps li span {
+    color: #5f82ad;
+    font-size: .7rem;
+    font-weight: 800;
+  }
+
+  .steps li h3 {
+    margin-top: 2rem;
+  }
+
+  .contact-reference dl {
+    display: grid;
+    margin: 0;
+    border-top: 1px solid var(--sand);
+  }
+
+  .contact-reference dl div {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .contact-reference dt {
+    color: #5f82ad;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .contact-reference dd {
+    margin: .3rem 0 0;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .contact-reference a {
+    color: #3f648d;
+    text-decoration: none;
+  }
+
+  .safety {
+    background: #0b1d3a;
+    color: #dbe7f3;
+  }
+
+  .safety h2 {
+    color: white;
+  }
+
+  .safety .eyebrow {
+    color: #b5c8df;
+  }
+
+  .faq details {
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--sand);
+  }
+
+  .faq details:last-child {
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .faq summary {
+    cursor: pointer;
+    color: var(--ink);
+    font-weight: 750;
+  }
+
+  .faq details p {
+    padding-top: .85rem;
+  }
+
+  @media (min-width:48rem) {
+    .start-grid {
+      grid-template-columns: 12rem minmax(0,1fr);
+      gap: clamp(3rem,7vw,8rem);
+    }
+
+    .steps ol {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    .reference-grid,
+    .safety-grid,
+    .faq-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+  }
+</style>
