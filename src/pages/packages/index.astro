@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { appointmentUrl } from '../../data/site';
 ---
 
 <Layout
@@ -10,17 +12,301 @@ import PageHero from '../../components/PageHero.astro';
   <PageHero
     eyebrow="Ways to work together"
     title="Coaching packages"
-    intro="Clear options for ongoing support, from focused short-term work to longer-term system building."
+    intro="Clear options for focused support, system building, and ongoing accountability."
     crumbs={[{ label: 'Packages' }]}
   />
 
   <section class="section">
-    <div class="container measure">
-      <h2>Choose support that matches the work.</h2>
-      <p>
-        Package structure, session frequency, pricing, and discovery-call
-        details will be developed in the next content pass.
-      </p>
+    <div class="container package-intro">
+      <div>
+        <p class="eyebrow">Choose enough support to test the system</p>
+        <h2>Real change usually needs more than one good conversation.</h2>
+      </div>
+
+      <div class="measure">
+        <p>
+          Coaching packages create enough space to identify a problem, build
+          something useful, try it in real life, and make adjustments based on
+          what actually happens.
+        </p>
+        <p>
+          The package examples below show how Signal &amp; Structure could
+          organize coaching for this fictional portfolio practice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <div class="packages-grid">
+        <article class="package">
+          <div class="package-number">01</div>
+          <p class="package-type">Focused support</p>
+          <h2>Reset Sprint</h2>
+          <p class="package-length">3 sessions · about 4 weeks</p>
+          <p>
+            A short coaching cycle for one specific area that has become
+            difficult to manage.
+          </p>
+
+          <ul>
+            <li>one primary coaching goal</li>
+            <li>friction and workflow mapping</li>
+            <li>one or two practical systems to test</li>
+            <li>adjustment and next-step planning</li>
+          </ul>
+
+          <p class="best-for">
+            <strong>Useful for:</strong> an overloaded calendar, a difficult
+            semester transition, task initiation, or rebuilding one routine.
+          </p>
+        </article>
+
+        <article class="package featured">
+          <div class="package-number">02</div>
+          <p class="package-type">Core package</p>
+          <h2>Systems Build</h2>
+          <p class="package-length">6 sessions · about 8–10 weeks</p>
+          <p>
+            More room to work across connected challenges and build systems
+            that can survive an ordinary week.
+          </p>
+
+          <ul>
+            <li>priority and workload mapping</li>
+            <li>planning and capture systems</li>
+            <li>task-start and transition supports</li>
+            <li>weekly testing and refinement</li>
+            <li>recovery planning for disrupted weeks</li>
+          </ul>
+
+          <p class="best-for">
+            <strong>Useful for:</strong> adults, students, or professionals
+            who want a broader executive-function system rather than a
+            single-task solution.
+          </p>
+        </article>
+
+        <article class="package">
+          <div class="package-number">03</div>
+          <p class="package-type">Ongoing support</p>
+          <h2>Tune-Up</h2>
+          <p class="package-length">2 sessions each month</p>
+          <p>
+            Continued coaching for people who already have useful systems and
+            want regular review, accountability, and adaptation.
+          </p>
+
+          <ul>
+            <li>review current systems</li>
+            <li>identify new friction quickly</li>
+            <li>adjust plans as demands change</li>
+            <li>maintain realistic accountability</li>
+          </ul>
+
+          <p class="best-for">
+            <strong>Useful for:</strong> changing workloads, new responsibilities,
+            ongoing school demands, or maintaining systems over time.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container included-grid">
+      <div>
+        <p class="eyebrow">Across coaching packages</p>
+        <h2>The goal is usable structure, not more homework.</h2>
+      </div>
+
+      <div class="included-list">
+        <div>
+          <span>01</span>
+          <strong>Collaborative planning</strong>
+          <p>Build around your actual workload, energy, responsibilities, and constraints.</p>
+        </div>
+
+        <div>
+          <span>02</span>
+          <strong>Real-world testing</strong>
+          <p>Try systems between sessions and bring back what happened rather than what was supposed to happen.</p>
+        </div>
+
+        <div>
+          <span>03</span>
+          <strong>Adjustment</strong>
+          <p>Change tools and routines when they create more work than they remove.</p>
+        </div>
+
+        <div>
+          <span>04</span>
+          <strong>Recovery planning</strong>
+          <p>Build systems that can restart after travel, illness, deadlines, or a difficult week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container start-grid">
+      <div>
+        <p class="eyebrow">Not sure which option fits?</p>
+        <h2>Start with the problem, not the package.</h2>
+        <p>
+          The discovery call is meant to clarify what is difficult right now
+          and what amount of support may make sense.
+        </p>
+      </div>
+
+      <Button
+        href={appointmentUrl}
+        variant="light"
+        tracking="request-appointment"
+      >
+        Book a discovery call
+      </Button>
     </div>
   </section>
 </Layout>
+
+<style>
+  .package-intro,
+  .included-grid,
+  .start-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .packages-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .package {
+    position: relative;
+    padding: clamp(1.5rem, 4vw, 2.4rem);
+    border: 1px solid var(--sand);
+    background: white;
+  }
+
+  .package.featured {
+    border-top: .45rem solid var(--structure);
+  }
+
+  .package-number {
+    margin-bottom: 2.5rem;
+    color: var(--structure);
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+  }
+
+  .package.featured .package-number {
+    color: var(--structure-dark);
+  }
+
+  .package-type {
+    margin-bottom: .5rem;
+    color: var(--signal-text);
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .package h2 {
+    margin-bottom: .4rem;
+  }
+
+  .package-length {
+    color: var(--muted);
+    font-size: .86rem;
+    font-weight: 700;
+  }
+
+  .package ul {
+    display: grid;
+    gap: .65rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .package li {
+    position: relative;
+    padding-left: 1.35rem;
+  }
+
+  .package li:before {
+    content: "";
+    position: absolute;
+    top: .65em;
+    left: 0;
+    width: .5rem;
+    height: .5rem;
+    background: var(--signal-strong);
+  }
+
+  .best-for {
+    padding-top: 1rem;
+    border-top: 1px solid var(--sand);
+    font-size: .9rem;
+  }
+
+  .included-list {
+    display: grid;
+    border-top: 1px solid var(--sand);
+  }
+
+  .included-list > div {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    gap: .35rem 1rem;
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .included-list span {
+    grid-row: 1 / span 2;
+    color: var(--structure);
+    font-size: .68rem;
+    font-weight: 900;
+  }
+
+  .included-list strong {
+    color: var(--ink);
+  }
+
+  .included-list p {
+    font-size: .92rem;
+  }
+
+  .start-grid {
+    align-items: center;
+  }
+
+  @media (min-width:48rem) {
+    .package-intro,
+    .included-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem, 7vw, 7rem);
+    }
+
+    .start-grid {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  @media (min-width:70rem) {
+    .packages-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+    }
+
+    .package.featured {
+      transform: translateY(-1rem);
+    }
+  }
+</style>

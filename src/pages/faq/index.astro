@@ -1,6 +1,51 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { appointmentUrl } from '../../data/site';
+
+const questions = [
+  {
+    question: 'What is ADHD and executive-function coaching?',
+    answer:
+      'It is practical, collaborative coaching focused on planning, prioritization, organization, task initiation, time awareness, routines, follow-through, and other day-to-day executive-function demands. The work centers on building systems you can use in real life.',
+  },
+  {
+    question: 'Do I need an ADHD diagnosis to work with a coach?',
+    answer:
+      'No. Someone may seek coaching because they have ADHD, suspect they have ADHD, or simply recognize recurring difficulties with planning, focus, organization, time, or follow-through. Coaching does not provide diagnosis.',
+  },
+  {
+    question: 'How is coaching different from therapy?',
+    answer:
+      'Coaching focuses primarily on present-day goals, practical systems, action, and accountability. Therapy may address mental-health symptoms, diagnosis, trauma, emotional processing, or clinical treatment. Coaching is not a substitute for psychotherapy, medical care, or mental-health treatment.',
+  },
+  {
+    question: 'Are sessions virtual?',
+    answer:
+      'Yes. This fictional Signal & Structure practice is presented as Minneapolis-based with individual virtual coaching for adults, college students, and professionals.',
+  },
+  {
+    question: 'What if I have already tried planners, apps, and productivity systems?',
+    answer:
+      'That is useful information. Coaching does not assume the answer is another planner. We look at why previous systems stopped working, what created friction, and what a new support would need to do differently.',
+  },
+  {
+    question: 'How long do people usually work with a coach?',
+    answer:
+      'It depends on the goal. A focused issue may fit a short coaching cycle, while broader executive-function work may benefit from several weeks of testing and adjustment. Some people continue with lower-frequency support as responsibilities change.',
+  },
+  {
+    question: 'Can coaching help with school or work?',
+    answer:
+      'Yes. Student coaching may focus on assignments, studying, deadlines, schedules, and independent routines. Professional coaching may focus on workload management, meetings, communication, project execution, prioritization, and transitions between competing demands.',
+  },
+  {
+    question: 'What happens during a discovery call?',
+    answer:
+      'The discovery call is a short conversation about what feels difficult, what you have already tried, what you hope would be different, and whether coaching appears to be a useful fit. You do not need to prepare a complete history or arrive with a perfect goal.',
+  },
+];
 ---
 
 <Layout
@@ -15,12 +60,167 @@ import PageHero from '../../components/PageHero.astro';
   />
 
   <section class="section">
-    <div class="container measure">
-      <h2>Questions before getting started are expected.</h2>
-      <p>
-        The full FAQ will cover coaching versus therapy, virtual sessions,
-        packages, scheduling, and fit.
-      </p>
+    <div class="container faq-layout">
+      <div class="faq-heading">
+        <p class="eyebrow">Before getting started</p>
+        <h2>Questions are part of choosing the right support.</h2>
+        <p>
+          Coaching should make sense before you commit to it. These are some
+          of the questions a prospective client may want answered first.
+        </p>
+      </div>
+
+      <div class="questions">
+        {
+          questions.map((item, index) => (
+            <details>
+              <summary>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{item.question}</strong>
+                <b aria-hidden="true">+</b>
+              </summary>
+              <div class="answer">
+                <p>{item.answer}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container scope-grid">
+      <div>
+        <p class="eyebrow">A note about fit</p>
+        <h2>Some needs belong outside coaching.</h2>
+      </div>
+
+      <div>
+        <p>
+          Signal &amp; Structure is presented as a coaching practice, not a
+          psychotherapy, medical, diagnostic, or crisis service.
+        </p>
+        <p>
+          Someone needing treatment for a mental-health condition, diagnostic
+          evaluation, medication management, or emergency support should seek
+          an appropriately licensed healthcare or mental-health professional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">Still have a question?</p>
+        <h2>Start with a conversation.</h2>
+        <p>
+          A discovery call can help clarify whether coaching and the Signal
+          &amp; Structure approach seem appropriate for what you want to work on.
+        </p>
+      </div>
+
+      <Button
+        href={appointmentUrl}
+        variant="light"
+        tracking="request-appointment"
+      >
+        Book a discovery call
+      </Button>
     </div>
   </section>
 </Layout>
+
+<style>
+  .faq-layout,
+  .scope-grid,
+  .contact-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .faq-heading {
+    max-width: 30rem;
+  }
+
+  .questions {
+    border-top: 1px solid var(--sand);
+  }
+
+  details {
+    border-bottom: 1px solid var(--sand);
+  }
+
+  summary {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    min-height: 5rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary span {
+    color: var(--structure);
+    font-size: .66rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+  }
+
+  summary strong {
+    color: var(--ink);
+    font-size: clamp(1rem, 1.4vw, 1.16rem);
+    line-height: 1.35;
+  }
+
+  summary b {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    background: var(--signal);
+    color: var(--ink);
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform .16s ease;
+  }
+
+  details[open] summary b {
+    transform: rotate(45deg);
+  }
+
+  .answer {
+    padding: 0 3rem 1.5rem 3.2rem;
+  }
+
+  .answer p {
+    max-width: 45rem;
+  }
+
+  .contact-grid {
+    align-items: center;
+  }
+
+  @media (min-width:48rem) {
+    .faq-layout {
+      grid-template-columns: .65fr 1.35fr;
+      gap: clamp(3rem, 7vw, 7rem);
+    }
+
+    .scope-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem, 7vw, 7rem);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr auto;
+    }
+  }
+</style>

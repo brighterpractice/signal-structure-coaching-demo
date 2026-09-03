@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { appointmentUrl } from '../../data/site';
 ---
 
 <Layout
@@ -15,12 +17,272 @@ import PageHero from '../../components/PageHero.astro';
   />
 
   <section class="section">
-    <div class="container measure">
-      <h2>Observe. Design. Test. Adjust.</h2>
-      <p>
-        Coaching starts by making the problem visible. From there, we build
-        practical supports, try them in real life, and adjust what does not fit.
-      </p>
+    <div class="container intro-grid">
+      <div>
+        <p class="eyebrow">Start with what is actually happening</p>
+        <h2>We are not trying to build a perfect routine.</h2>
+      </div>
+
+      <div class="measure">
+        <p class="lead">
+          Coaching starts by looking closely at where things break down in real
+          life. Maybe the problem is starting, remembering, estimating time,
+          switching tasks, deciding what matters first, or recovering after an
+          interrupted week.
+        </p>
+        <p>
+          Once the friction is visible, we can design support around it instead
+          of relying on more willpower, more reminders, or another system that
+          only works when life is unusually calm.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">The coaching loop</p>
+        <h2>Observe. Decide. Design. Adjust.</h2>
+        <p>
+          The process is collaborative and practical. Each step gives us more
+          useful information about what your system actually needs.
+        </p>
+      </div>
+
+      <ol class="process-grid">
+        <li>
+          <span>01</span>
+          <h3>Observe</h3>
+          <p>
+            Identify where a task, deadline, routine, or decision begins to
+            lose traction.
+          </p>
+        </li>
+
+        <li>
+          <span>02</span>
+          <h3>Decide</h3>
+          <p>
+            Clarify what matters most right now and choose a manageable problem
+            to work on first.
+          </p>
+        </li>
+
+        <li>
+          <span>03</span>
+          <h3>Design</h3>
+          <p>
+            Build a visible support, routine, cue, planning method, or workflow
+            that reduces friction.
+          </p>
+        </li>
+
+        <li>
+          <span>04</span>
+          <h3>Adjust</h3>
+          <p>
+            Test it during an ordinary week, keep what helps, and change what
+            does not hold up.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container session-grid">
+      <div>
+        <p class="eyebrow">Inside a session</p>
+        <h2>Come with the real version of the problem.</h2>
+        <p>
+          You do not need to organize everything before a coaching session.
+          Bring the overdue project, the chaotic calendar, the routine that
+          disappeared, or the task you keep avoiding.
+        </p>
+      </div>
+
+      <div class="session-panel">
+        <p class="panel-label">A session may include</p>
+        <ul>
+          <li>mapping where a task is getting stuck</li>
+          <li>breaking a vague goal into visible next actions</li>
+          <li>building a planning or capture system</li>
+          <li>reducing unnecessary decisions</li>
+          <li>creating cues for transitions or task initiation</li>
+          <li>reviewing what worked since the last session</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container support-grid">
+      <div>
+        <p class="eyebrow">Scope of coaching</p>
+        <h2>Coaching focuses on action, structure, and follow-through.</h2>
+      </div>
+
+      <div>
+        <p>
+          Signal &amp; Structure coaching can support planning, prioritization,
+          organization, task initiation, time awareness, routines,
+          communication, and practical systems for school or work.
+        </p>
+        <p>
+          Coaching is not psychotherapy, medical treatment, diagnosis, or
+          emergency support. When a need falls outside coaching, a licensed
+          healthcare or mental-health professional may be the more appropriate
+          resource.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container next-step">
+      <div>
+        <p class="eyebrow">A simple starting point</p>
+        <h2>You do not have to know what system you need yet.</h2>
+        <p>
+          A discovery call is a place to talk about what feels difficult,
+          what you have already tried, and whether coaching seems like a useful
+          next step.
+        </p>
+      </div>
+
+      <Button href={appointmentUrl} tracking="request-appointment">
+        Book a discovery call
+      </Button>
     </div>
   </section>
 </Layout>
+
+<style>
+  .intro-grid,
+  .session-grid,
+  .support-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .lead {
+    color: var(--ink);
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    line-height: 1.6;
+  }
+
+  .section-heading {
+    max-width: 46rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .process-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .process-grid li {
+    position: relative;
+    min-height: 15rem;
+    padding: 1.5rem;
+    border: 1px solid var(--sand);
+    background: white;
+  }
+
+  .process-grid li > span {
+    display: block;
+    margin-bottom: 3rem;
+    color: var(--structure);
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+  }
+
+  .process-grid li:after {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--signal);
+  }
+
+  .process-grid h3 {
+    margin-bottom: .65rem;
+  }
+
+  .session-panel {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-left: .35rem solid var(--structure);
+    background: #edeee8;
+  }
+
+  .panel-label {
+    color: var(--signal-text);
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .session-panel ul {
+    display: grid;
+    gap: .75rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .session-panel li {
+    position: relative;
+    padding-left: 1.4rem;
+  }
+
+  .session-panel li:before {
+    content: "";
+    position: absolute;
+    top: .65em;
+    left: 0;
+    width: .55rem;
+    height: .55rem;
+    background: var(--signal-strong);
+  }
+
+  .next-step {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    background: white;
+    border: 1px solid var(--sand);
+    box-shadow: var(--shadow);
+  }
+
+  @media (min-width:48rem) {
+    .intro-grid,
+    .session-grid,
+    .support-grid {
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem, 7vw, 7rem);
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .next-step {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  @media (min-width:70rem) {
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
