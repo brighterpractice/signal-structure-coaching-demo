@@ -12,147 +12,118 @@ export interface ServicePageContent {
   wholePersonTitle?: string;
   wholePerson?: string[];
   related?: { slug: string; label: string }[];
-  approachLinks?: { href: string; label: string }[];
 }
 
 export const servicePages: Record<string, ServicePageContent> = {
-  'trauma-ptsd': {
-    title: 'Trauma Therapy in Madison, Wisconsin',
+  'adhd-coaching': {
+    title: 'ADHD Coaching | Signal & Structure Coaching',
     description:
-      'Individual trauma therapy with Jordan Ellis, LPC, for adults in Madison, Wisconsin.',
+      'Practical ADHD coaching for adults who want better systems for attention, planning, organization, and follow-through.',
     hero:
-      'Your system may still be responding to something that is over—or to something that never felt fully over.',
-    leadTitle: 'The response makes sense, even when it has become exhausting.',
+      'Build systems around the way your attention actually works instead of repeatedly forcing strategies that do not stick.',
+    leadTitle: 'Start with the friction that keeps repeating.',
     lead: [
-      'After an overwhelming experience, the mind and body can keep scanning, bracing, avoiding, or shutting down. These reactions may have helped you get through something difficult. Later, they can interfere with sleep, concentration, trust, connection, or ordinary routines.',
-      'Therapy begins by understanding what is happening now. You are not required to recount every detail, move faster than feels manageable, or make the experience the center of your identity.',
+      'Coaching can help make everyday obstacles more visible and turn them into practical systems you can test, adjust, and use.',
     ],
-    experiencesTitle: 'Patterns worth noticing',
+    experiencesTitle: 'Areas we may work on',
     experiences: [
-      'Feeling alert even when nothing obvious is wrong',
-      'Avoiding reminders, conversations, places, or emotions',
-      'Intrusive memories, dreams, or strong reactions to cues',
-      'Numbness, disconnection, or difficulty staying present',
-      'Shame, self-blame, or changes in trust',
-      'Physical tension or alarm that is difficult to settle',
+      'Starting tasks without waiting for urgency',
+      'Planning realistically instead of overloading the day',
+      'Keeping important information visible',
+      'Following through after the initial motivation fades',
+      'Managing transitions between tasks and responsibilities',
+      'Building routines that are flexible enough to survive real life',
     ],
-    approachTitle: 'Stability first. Then careful, collaborative work.',
+    approachTitle: 'Observe, design, test, adjust.',
     approach: [
-      'Jordan may begin with present-day patterns, resources, and ways to regain a sense of choice when a response takes over. From there, counseling can examine what keeps the pattern active and what helps it loosen.',
-      'IFS concepts, Somatic Experiencing, body awareness, and mindfulness may be incorporated when they fit the client and the work. Method and pace are discussed rather than assumed.',
-    ],
-    wholePersonTitle: 'Trauma-informed does not mean trauma-only.',
-    wholePerson: [
-      'The work can include relationships, identity, work, boundaries, grief, and the life you want beyond symptom management. The difficult experience matters, but it is not the whole picture.',
+      'Coaching focuses on the systems around the problem: what is expected, where friction appears, what currently happens, and what could make the next step easier to see and complete.',
     ],
     related: [
-      { slug: 'anxiety-stress', label: 'Explore anxiety and stress support' },
-    ],
-    approachLinks: [
-      { href: '/approaches/internal-family-systems/', label: 'Internal Family Systems' },
-      { href: '/approaches/somatic-experiencing/', label: 'Somatic Experiencing' },
+      { slug: 'executive-function-coaching', label: 'Explore executive function coaching' },
     ],
   },
 
-  'anxiety-stress': {
-    title: 'Anxiety Therapy in Madison, Wisconsin',
+  'executive-function-coaching': {
+    title: 'Executive Function Coaching | Signal & Structure Coaching',
     description:
-      'Individual counseling for anxiety, chronic stress, worry, and overwhelm with Jordan Ellis, LPC, in Madison.',
+      'Executive-function coaching for planning, organization, time awareness, prioritization, task initiation, and follow-through.',
     hero:
-      'When your mind stays three steps ahead and your body rarely gets the message that it can stand down.',
-    leadTitle: 'Being prepared for everything can become its own form of exhaustion.',
+      'When knowing what to do is not the same thing as being able to organize and execute it consistently.',
+    leadTitle: 'Make the invisible parts of getting things done visible.',
     lead: [
-      'Anxiety can look like racing thoughts, but it can also look like overpreparing, indecision, irritability, perfectionism, constant problem-solving, or difficulty resting without guilt.',
-      'Counseling can help map the cycle: what triggers it, what your mind predicts, what your body does next, and which responses provide short-term relief while keeping the pattern in place.',
+      'Executive-function coaching can help break large demands into clearer decisions, external supports, and repeatable processes.',
     ],
-    experiencesTitle: 'Signals the cycle may be running',
+    experiencesTitle: 'Areas we may work on',
     experiences: [
-      'Replaying conversations or anticipating every possible outcome',
-      'Tension, restlessness, shallow breathing, or disrupted sleep',
-      'Perfectionism and fear of making the wrong choice',
-      'Avoiding tasks because beginning feels overwhelming',
-      'Difficulty being present when there is still something unfinished',
-      'Feeling responsible for keeping everyone or everything okay',
+      'Prioritizing when everything feels important',
+      'Breaking projects into concrete next actions',
+      'Estimating time more realistically',
+      'Creating systems for reminders and follow-up',
+      'Reducing decision overload',
+      'Recovering when a routine or plan gets interrupted',
     ],
-    approachTitle: 'Make the pattern visible, then create room for another response.',
+    approachTitle: 'Create structure outside your head.',
     approach: [
-      'Sessions may combine practical observation with exploration of beliefs, protective strategies, earlier experiences, and nervous-system cues. The goal is not to eliminate every uncertain thought; it is to reduce how completely anxiety organizes your choices.',
-      'Jordan may incorporate body-informed practices, mindfulness, or IFS concepts alongside direct conversation and real-life experiments.',
+      'The goal is not perfect organization. It is a system that makes priorities easier to see, actions easier to begin, and progress easier to recover when plans change.',
     ],
     related: [
-      { slug: 'trauma-ptsd', label: 'Explore trauma and difficult experiences' },
-    ],
-    approachLinks: [
-      { href: '/approaches/somatic-experiencing/', label: 'Somatic Experiencing' },
-      { href: '/approaches/', label: 'View the approach map' },
+      { slug: 'adhd-coaching', label: 'Explore ADHD coaching' },
     ],
   },
 
-  'depression-emotional-disconnection': {
-    title: 'Depression Therapy in Madison, Wisconsin',
+  'student-coaching': {
+    title: 'College & Student Coaching | Signal & Structure Coaching',
     description:
-      'Counseling for depression, shutdown, low mood, and emotional disconnection with Jordan Ellis, LPC.',
+      'Coaching for college students who want stronger systems for workload, deadlines, routines, focus, and independent follow-through.',
     hero:
-      'Life may still be moving, even while you feel increasingly absent from it.',
-    leadTitle: 'Disconnection is not always obvious sadness.',
+      'College asks you to manage a large amount of structure on your own—often all at once.',
+    leadTitle: 'Build a system for school that does not depend on constant urgency.',
     lead: [
-      'It may feel like low energy, numbness, irritation, reduced interest, or the effort of completing each day on autopilot. You may appear capable while privately feeling far away from yourself and other people.',
-      'Therapy creates a place to examine what has gone quiet, what has become too heavy, and what may be protecting you through withdrawal or shutdown.',
+      'Student coaching can help turn syllabi, assignments, study plans, and competing responsibilities into a clearer weekly structure.',
     ],
-    experiencesTitle: 'What disconnection can look like',
+    experiencesTitle: 'Areas we may work on',
     experiences: [
-      'Going through routines without feeling engaged',
-      'Pulling away from people, interests, or responsibilities',
-      'Harsh internal criticism or a persistent sense of failure',
-      'Low energy, reduced concentration, or difficulty beginning',
-      'Feeling emotionally flat, unreachable, or stuck',
-      'Wanting change while having little energy to pursue it',
+      'Tracking assignments and deadlines',
+      'Starting longer projects before they become emergencies',
+      'Planning study time around real energy and attention',
+      'Balancing school, work, sleep, and personal responsibilities',
+      'Building routines across changing class schedules',
+      'Recovering after missed deadlines or disrupted weeks',
     ],
-    approachTitle: 'Begin with contact, not forced positivity.',
+    approachTitle: 'Make the semester easier to see.',
     approach: [
-      'Jordan may help identify patterns around withdrawal, pressure, self-criticism, grief, exhaustion, or protective shutdown. The work can include small, realistic ways to reconnect with needs, relationships, values, and daily life.',
-      'Counseling does not require pretending things feel better than they do. Progress may begin with clearer language, greater choice, and a less adversarial relationship with your current experience.',
+      'Together, we can create external systems for planning, prioritization, study routines, and follow-through that fit the demands of school and the way you work best.',
     ],
     related: [
-      { slug: 'relationship-concerns', label: 'Explore relationship patterns' },
-    ],
-    approachLinks: [
-      { href: '/approaches/internal-family-systems/', label: 'Internal Family Systems' },
-      { href: '/approaches/', label: 'View the approach map' },
+      { slug: 'executive-function-coaching', label: 'Explore executive function coaching' },
     ],
   },
 
-  'relationship-concerns': {
-    title: 'Individual Therapy for Relationship Patterns | Madison, WI',
+  'professional-coaching': {
+    title: 'Career & Professional Coaching | Signal & Structure Coaching',
     description:
-      'Individual counseling for boundaries, trust, conflict, and recurring relationship patterns in Madison, Wisconsin.',
+      'Coaching for professionals who want better systems for focus, workload, priorities, communication, and execution.',
     hero:
-      'Understand what happens between the moment you feel threatened and the moment the familiar pattern takes over.',
-    leadTitle: 'The same protective move can solve one problem and create another.',
+      'Complex work becomes harder when priorities live in too many places and every task competes for attention.',
+    leadTitle: 'Build a working system for the role you actually have.',
     lead: [
-      'You may become quiet, argumentative, accommodating, distant, intensely self-reliant, or focused on restoring connection at any cost. These reactions often have a history and a purpose—even when they no longer produce the relationship you want.',
-      'Individual therapy offers space to study your side of the pattern: what you notice, what you fear, what you need, and where choice tends to disappear.',
+      'Professional coaching can help clarify workload, create more reliable planning systems, and reduce the amount of work that depends on remembering everything at once.',
     ],
-    experiencesTitle: 'Patterns you may want to understand',
+    experiencesTitle: 'Areas we may work on',
     experiences: [
-      'Difficulty naming needs before resentment builds',
-      'People-pleasing, overfunctioning, or unclear boundaries',
-      'Recurring conflict that follows a familiar sequence',
-      'Fear of closeness, rejection, dependence, or abandonment',
-      'Carrying expectations from earlier relationships into current ones',
-      'Uncertainty about whether to repair, change, or leave',
+      'Managing competing projects and deadlines',
+      'Protecting time for focused work',
+      'Preparing for meetings and follow-up',
+      'Tracking commitments across multiple systems',
+      'Communicating priorities and capacity more clearly',
+      'Building routines that scale with responsibility',
     ],
-    approachTitle: 'Slow the sequence down enough to see it.',
+    approachTitle: 'Design around the real demands of your work.',
     approach: [
-      'Counseling may examine emotional cues, attachment needs, assumptions, body responses, and the strategies you use to protect yourself or preserve connection.',
-      'This is individual therapy rather than couples counseling. The work does not assign blame or decide what you should do. It helps you understand your experience and act with greater clarity.',
+      'The focus stays practical: identify where work gets lost or delayed, externalize the process, and build structures that support consistent execution.',
     ],
     related: [
-      { slug: 'depression-emotional-disconnection', label: 'Explore depression and disconnection' },
-    ],
-    approachLinks: [
-      { href: '/approaches/internal-family-systems/', label: 'Internal Family Systems' },
-      { href: '/approaches/', label: 'Emotion- and attachment-focused work' },
+      { slug: 'executive-function-coaching', label: 'Explore executive function coaching' },
     ],
   },
 };

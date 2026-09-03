@@ -21,16 +21,6 @@ const related = content.related
   }))
   .filter((item) => item.service?.published && item.service?.hasDetailPage);
 
-const allowedApproachHrefs = new Set([
-  '/approaches/',
-  '/approaches/internal-family-systems/',
-  '/approaches/somatic-experiencing/',
-]);
-
-const approachLinks = (content.approachLinks ?? []).filter((item) =>
-  allowedApproachHrefs.has(item.href)
-);
-
 const crumbs = [
   { label: 'Services', href: '/services/' },
   { label: service.title },
@@ -43,7 +33,7 @@ const crumbs = [
   schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
   <PageHero
-    eyebrow="Clinical focus"
+    eyebrow="Coaching focus"
     title={service.title}
     intro={content.hero}
     crumbs={crumbs}
@@ -52,7 +42,7 @@ const crumbs = [
   <section class="brief">
     <div class="container brief-grid">
       <aside class="brief-index">
-        <p>ALIGN / SERVICE BRIEF</p>
+        <p>SIGNAL / COACHING BRIEF</p>
         <span>01</span>
         <strong>Start here</strong>
       </aside>
@@ -89,7 +79,7 @@ const crumbs = [
     <div class="container working-grid">
       <div class="working-label">
         <span>02</span>
-        <p>How the work may proceed</p>
+        <p>How coaching may proceed</p>
       </div>
 
       <div class="working-copy">
@@ -97,16 +87,6 @@ const crumbs = [
         <h2>{content.approachTitle}</h2>
         {content.approach.map((paragraph) => <p>{paragraph}</p>)}
 
-        {
-          approachLinks.length > 0 && (
-            <div class="method-links">
-              <p>Related methods</p>
-              {approachLinks.map((item) => (
-                <a href={item.href}>{item.label} ↗</a>
-              ))}
-            </div>
-          )
-        }
       </div>
     </div>
   </section>
@@ -132,10 +112,11 @@ const crumbs = [
     <div class="container next-grid">
       <div>
         <p class="eyebrow">Next</p>
-        <h2>Bring the question you actually have.</h2>
+        <h2>Bring the friction point you actually have.</h2>
         <p>
-          You do not need a diagnosis, a polished explanation, or certainty
-          that therapy is the right next step before contacting the practice.
+          You do not need a polished plan before reaching out. A discovery
+          call can start with what feels difficult to organize, begin, or
+          follow through on right now.
         </p>
       </div>
 
@@ -145,7 +126,7 @@ const crumbs = [
           variant="light"
           tracking="request-appointment"
         >
-          Request an appointment
+          Book a discovery call
         </Button>
 
         {

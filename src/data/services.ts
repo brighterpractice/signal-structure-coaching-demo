@@ -12,84 +12,52 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: 'trauma-ptsd',
-    title: 'Trauma & Difficult Experiences',
-    href: '/services/trauma-ptsd/',
+    slug: 'adhd-coaching',
+    title: 'ADHD Coaching',
+    href: '/services/adhd-coaching/',
     description:
-      'For reactions that remain active after frightening, overwhelming, or deeply disruptive experiences.',
+      'Practical coaching for adults who want better systems for attention, planning, follow-through, and daily life.',
     summary:
-      'When the past keeps showing up in attention, trust, sleep, relationships, or the body.',
+      'Build structures that reduce friction without expecting your brain to work like someone else’s.',
     showOnHome: true,
     published: true,
     hasDetailPage: true,
   },
   {
-    slug: 'anxiety-stress',
-    title: 'Anxiety & Stress',
-    href: '/services/anxiety-stress/',
+    slug: 'executive-function-coaching',
+    title: 'Executive Function Coaching',
+    href: '/services/executive-function-coaching/',
     description:
-      'For worry, vigilance, perfectionism, overload, and the physical effort of always staying prepared.',
+      'Support for planning, organization, prioritization, time awareness, task initiation, and follow-through.',
     summary:
-      'When your mind stays three steps ahead and your body rarely gets the message that it can stand down.',
+      'Turn vague intentions into visible systems, manageable next steps, and repeatable routines.',
     showOnHome: true,
     published: true,
     hasDetailPage: true,
   },
   {
-    slug: 'depression-emotional-disconnection',
-    title: 'Depression & Disconnection',
-    href: '/services/depression-emotional-disconnection/',
+    slug: 'student-coaching',
+    title: 'College & Student Coaching',
+    href: '/services/student-coaching/',
     description:
-      'For low mood, emotional distance, loss of interest, shutdown, and the sense that life is happening without you.',
+      'Coaching for college students navigating workload, independence, deadlines, routines, and competing priorities.',
     summary:
-      'When you are functioning on the outside but feel distant, depleted, or absent from your own life.',
+      'Create a workable structure for school without relying on panic, memory, or last-minute pressure.',
     showOnHome: true,
     published: true,
     hasDetailPage: true,
   },
   {
-    slug: 'relationship-concerns',
-    title: 'Relationship Patterns',
-    href: '/services/relationship-concerns/',
+    slug: 'professional-coaching',
+    title: 'Career & Professional Coaching',
+    href: '/services/professional-coaching/',
     description:
-      'Individual therapy for boundaries, trust, conflict, closeness, and reactions that repeat across relationships.',
+      'Executive-function coaching for professionals managing complex workloads, competing priorities, and demanding roles.',
     summary:
-      'When the same conflict, distance, or self-protective response keeps returning in important relationships.',
+      'Build systems for focus, communication, planning, and execution that hold up in real work.',
     showOnHome: true,
     published: true,
     hasDetailPage: true,
-  },
-  {
-    slug: 'grief-loss',
-    title: 'Grief & Loss',
-    href: '/services/',
-    description:
-      'Room for loss, mixed emotions, changed roles, and the practical work of living in a life that now feels different.',
-    published: true,
-  },
-  {
-    slug: 'chronic-pain-chronic-illness',
-    title: 'Chronic Pain & Illness',
-    href: '/services/',
-    description:
-      'Support for the emotional, relational, and identity changes that can accompany ongoing health concerns.',
-    published: true,
-  },
-  {
-    slug: 'life-transitions',
-    title: 'Life Transitions',
-    href: '/services/',
-    description:
-      'A place to think clearly during changes in work, family, identity, health, relationships, or direction.',
-    published: true,
-  },
-  {
-    slug: 'self-esteem-personal-growth',
-    title: 'Identity, Boundaries & Growth',
-    href: '/services/',
-    description:
-      'Focused work around self-trust, values, boundaries, internal criticism, and choices that fit more honestly.',
-    published: true,
   },
 ];
 
