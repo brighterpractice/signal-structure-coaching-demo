@@ -23,11 +23,10 @@ export const site = {
  publicUrl: 'https://signal-structure.brightersites.app',
  practice,
 
- // Temporary inherited profile data.
- // This will be replaced when the coaching About/profile pages are rebuilt.
+ // Field name retained temporarily for inherited schema compatibility.
  clinician: {
- name: 'Jordan Ellis',
- credentials: 'LPC',
- title: 'Licensed Professional Counselor',
+ name: 'Avery Reed',
+ credentials: '',
+ title: 'ADHD & Executive Function Coach',
  },
 };

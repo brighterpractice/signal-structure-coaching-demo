@@ -3,18 +3,18 @@ import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import { breadcrumbSchema, pageSchema } from '../../lib/schema';
 
-const crumbs = [{ label: 'About Align Therapy Group' }];
+const crumbs = [{ label: 'About Signal & Structure' }];
 ---
 
 <Layout
-  title="About Align Therapy Group | Madison, Wisconsin"
-  description="Learn about the structure, values, and focus of Align Therapy Group, a fictional individual counseling practice in Madison."
+  title="About Signal & Structure Coaching"
+  description="Learn about Signal & Structure Coaching, a practical ADHD and executive-function coaching practice built around useful systems, experimentation, and real-life follow-through."
   schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
   <PageHero
-    eyebrow="Practice profile"
-    title="A practice organized around clarity—not performance."
-    intro="Align Therapy Group is a fictional Madison counseling practice designed for adults who want to understand recurring patterns without being reduced to a diagnosis or pushed through a formula."
+    eyebrow="About the practice"
+    title="A coaching practice built around useful systems—not perfect routines."
+    intro="Signal & Structure helps people make the invisible parts of planning, prioritizing, starting, and following through easier to see and work with."
     crumbs={crumbs}
   />
 
@@ -22,24 +22,23 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     <div class="container definition-grid">
       <aside>
         <span>01</span>
-        <p>WHAT “ALIGN” MEANS</p>
+        <p>WHAT “SIGNAL & STRUCTURE” MEANS</p>
       </aside>
 
       <div>
-        <h2>Not perfect balance. A more honest relationship between what you know, feel, need, and do.</h2>
+        <h2>Notice the signal. Build enough structure to act on it.</h2>
 
         <p>
-          People often arrive in therapy because one part of life no longer
-          fits with another. You may understand a pattern intellectually and
-          still repeat it. You may value connection and protect yourself
-          through distance. You may appear capable while privately running out
-          of room.
+          A missed deadline, abandoned planner, overloaded week, or pile of
+          half-finished tasks contains information. The goal is not to turn
+          every difficult moment into a character judgment. It is to notice
+          where the system stopped supporting you.
         </p>
 
         <p>
-          The work is not about making every part of life feel settled.
-          It is about recognizing where choice has narrowed and creating enough
-          clarity to respond differently.
+          Structure then gives that information somewhere to go: a clearer
+          next action, a visible reminder, a smaller starting point, a more
+          realistic calendar, or a routine that can recover after disruption.
         </p>
       </div>
     </div>
@@ -49,40 +48,43 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     <div class="container">
       <div class="principle-heading">
         <p class="eyebrow">How the practice operates</p>
-        <h2>Four commitments that shape the room.</h2>
+        <h2>Four principles behind the work.</h2>
       </div>
 
       <ol>
         <li>
           <span>01</span>
-          <h3>Name the pattern</h3>
+          <h3>Make it visible</h3>
           <p>
-            Therapy should make the problem more understandable, not surround
-            it with unnecessary language.
+            Get the task, decision, deadline, or competing demand out of your
+            head so there is something concrete to work with.
           </p>
         </li>
+
         <li>
           <span>02</span>
-          <h3>Explain the method</h3>
+          <h3>Make it usable</h3>
           <p>
-            You can ask what Jordan is noticing, why an approach is being
-            considered, and what other directions are available.
+            A system only matters if it still works when attention, energy,
+            time, or motivation are less than ideal.
           </p>
         </li>
+
         <li>
           <span>03</span>
-          <h3>Keep context visible</h3>
+          <h3>Test it in real life</h3>
           <p>
-            Relationships, culture, responsibilities, health, values, and
-            practical realities affect what change can look like.
+            Coaching treats plans as experiments. What happens between
+            sessions is useful information, not a pass-or-fail test.
           </p>
         </li>
+
         <li>
           <span>04</span>
-          <h3>Adjust in real time</h3>
+          <h3>Build recovery in</h3>
           <p>
-            Feedback is part of the process. Pacing and language can change
-            when something does not fit.
+            Good systems need a way back in after travel, illness, a deadline
+            crunch, a rough week, or a simple change of plans.
           </p>
         </li>
       </ol>
@@ -93,14 +95,15 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     <div class="container scope-grid">
       <div>
         <p class="eyebrow">Practice scope</p>
-        <h2>Focused enough to be clear about what is offered.</h2>
+        <h2>Clear about what coaching is—and what it is not.</h2>
       </div>
 
       <dl>
-        <div><dt>Format</dt><dd>Individual counseling</dd></div>
-        <div><dt>Population</dt><dd>Adults</dd></div>
-        <div><dt>Location</dt><dd>Madison, Wisconsin</dd></div>
-        <div><dt>Not presented as</dt><dd>Couples therapy or emergency support</dd></div>
+        <div><dt>Format</dt><dd>Individual virtual coaching</dd></div>
+        <div><dt>Focus</dt><dd>ADHD & executive-function systems</dd></div>
+        <div><dt>Clients</dt><dd>Adults, college students & professionals</dd></div>
+        <div><dt>Location</dt><dd>Minneapolis-based, virtual coaching</dd></div>
+        <div><dt>Not presented as</dt><dd>Therapy, diagnosis, or emergency support</dd></div>
       </dl>
     </div>
   </section>
@@ -109,42 +112,56 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     <div class="container begin-grid">
       <div>
         <p class="eyebrow">Choose an entry point</p>
-        <h2>Start with the concern or start with the method.</h2>
+        <h2>Start with the friction or start with the process.</h2>
       </div>
 
       <div class="begin-links">
         <a href="/services/">
-          <span>01 / SERVICES</span>
-          <strong>What keeps happening?</strong>
-          <p>Explore anxiety, trauma responses, disconnection, relationship patterns, and related concerns.</p>
-          <b>Open the focus map ↗</b>
+          <span>01 / COACHING</span>
+          <strong>What keeps getting harder than it should?</strong>
+          <p>
+            Explore ADHD, executive-function, student, and professional
+            coaching.
+          </p>
+          <b>Explore coaching options ↗</b>
         </a>
 
         <a href="/how-coaching-works/">
-          <span>02 / APPROACHES</span>
-          <strong>How might therapy work with it?</strong>
-          <p>Review IFS, Somatic Experiencing, attachment-focused work, and present-moment awareness.</p>
-          <b>Open the method map ↗</b>
+          <span>02 / PROCESS</span>
+          <strong>What does coaching actually look like?</strong>
+          <p>
+            See how sessions move from observation to practical system design,
+            real-life testing, and adjustment.
+          </p>
+          <b>See how coaching works ↗</b>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="jordan-band">
-    <div class="container jordan-grid">
+  <section class="coach-band">
+    <div class="container coach-grid">
       <div class="identity-mark" aria-hidden="true">
-        <span>JE</span>
+        <span>AR</span>
         <div></div>
       </div>
 
       <div>
-        <p class="eyebrow">The counselor behind the structure</p>
-        <h2>Meet Jordan Ellis, LPC.</h2>
+        <p class="eyebrow">The coach behind the structure</p>
+        <h2>Meet Avery Reed.</h2>
         <p>
-          Learn how Jordan describes her working style, the questions she pays
-          attention to, and the methods she may bring into individual therapy.
+          Avery brings a practical, collaborative style to ADHD and
+          executive-function coaching. The focus is on understanding where
+          friction appears, designing supports that fit the client's actual
+          life, and treating setbacks as information instead of failure.
         </p>
-        <a href="/about/">Open Jordan’s profile →</a>
+
+        <a href="/how-coaching-works/">See Avery's coaching process →</a>
+
+        <p class="demo-disclosure">
+          Portfolio note: Signal & Structure Coaching and Avery Reed are
+          fictional. This website is a Brighter Sites design demonstration.
+        </p>
       </div>
     </div>
   </section>
@@ -155,14 +172,14 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
   .operating-principles,
   .scope,
   .begin-map,
-  .jordan-band {
+  .coach-band {
     padding: clamp(4rem,8vw,7rem) 0;
   }
 
   .definition-grid,
   .scope-grid,
   .begin-grid,
-  .jordan-grid {
+  .coach-grid {
     display: grid;
     gap: 2.5rem;
   }
@@ -299,20 +316,20 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     font-size: .8rem;
   }
 
-  .jordan-band {
+  .coach-band {
     background: #0b1d3a;
     color: #dbe7f3;
   }
 
-  .jordan-band h2 {
+  .coach-band h2 {
     color: white;
   }
 
-  .jordan-band .eyebrow {
+  .coach-band .eyebrow {
     color: #b5c8df;
   }
 
-  .jordan-band a {
+  .coach-band a {
     color: white;
     font-weight: 750;
     text-decoration: none;
@@ -340,6 +357,16 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     background: #a9bed6;
   }
 
+  .demo-disclosure {
+    max-width: 42rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,.18);
+    color: #91aac4;
+    font-size: .75rem;
+    line-height: 1.6;
+  }
+
   @media (min-width:48rem) {
     .definition-grid {
       grid-template-columns: 12rem minmax(0,1fr);
@@ -352,7 +379,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
 
     .scope-grid,
     .begin-grid,
-    .jordan-grid {
+    .coach-grid {
       grid-template-columns: .8fr 1.2fr;
       gap: clamp(3rem,7vw,7rem);
     }
